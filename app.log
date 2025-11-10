@@ -1,0 +1,437 @@
+2025-11-10 13:48:37 - AIReportSystem - INFO - [logger_config.py:64] - ================================================================================
+2025-11-10 13:48:37 - AIReportSystem - INFO - [logger_config.py:65] - Sistema di logging inizializzato - File: C:\Users\gtesta\PythonProjetcs\Python\Analisi_scraps\app.log
+2025-11-10 13:48:37 - AIReportSystem - INFO - [logger_config.py:66] - ================================================================================
+2025-11-10 13:48:37 - PDFGenerator - INFO - [logger_config.py:64] - ================================================================================
+2025-11-10 13:48:37 - PDFGenerator - INFO - [logger_config.py:65] - Sistema di logging inizializzato - File: C:\Users\gtesta\PythonProjetcs\Python\Analisi_scraps\app.log
+2025-11-10 13:48:37 - PDFGenerator - INFO - [logger_config.py:66] - ================================================================================
+2025-11-10 13:49:49 - AIReportSystem - INFO - [logger_config.py:64] - ================================================================================
+2025-11-10 13:49:49 - AIReportSystem - INFO - [logger_config.py:65] - Sistema di logging inizializzato - File: C:\Users\gtesta\PythonProjetcs\Python\Analisi_scraps\app.log
+2025-11-10 13:49:49 - AIReportSystem - INFO - [logger_config.py:66] - ================================================================================
+2025-11-10 13:49:49 - PDFGenerator - INFO - [logger_config.py:64] - ================================================================================
+2025-11-10 13:49:49 - PDFGenerator - INFO - [logger_config.py:65] - Sistema di logging inizializzato - File: C:\Users\gtesta\PythonProjetcs\Python\Analisi_scraps\app.log
+2025-11-10 13:49:49 - PDFGenerator - INFO - [logger_config.py:66] - ================================================================================
+2025-11-10 13:53:35 - AIReportSystem - INFO - [logger_config.py:64] - ================================================================================
+2025-11-10 13:53:35 - AIReportSystem - INFO - [logger_config.py:65] - Sistema di logging inizializzato - File: C:\Users\gtesta\PythonProjetcs\Python\Analisi_scraps\app.log
+2025-11-10 13:53:35 - AIReportSystem - INFO - [logger_config.py:66] - ================================================================================
+2025-11-10 13:53:35 - PDFGenerator - INFO - [logger_config.py:64] - ================================================================================
+2025-11-10 13:53:35 - PDFGenerator - INFO - [logger_config.py:65] - Sistema di logging inizializzato - File: C:\Users\gtesta\PythonProjetcs\Python\Analisi_scraps\app.log
+2025-11-10 13:53:35 - PDFGenerator - INFO - [logger_config.py:66] - ================================================================================
+2025-11-10 13:53:35 - ExcelGenerator - INFO - [logger_config.py:64] - ================================================================================
+2025-11-10 13:53:35 - ExcelGenerator - INFO - [logger_config.py:65] - Sistema di logging inizializzato - File: C:\Users\gtesta\PythonProjetcs\Python\Analisi_scraps\app.log
+2025-11-10 13:53:35 - ExcelGenerator - INFO - [logger_config.py:66] - ================================================================================
+2025-11-10 13:53:35 - EmailSender - INFO - [logger_config.py:64] - ================================================================================
+2025-11-10 13:53:35 - EmailSender - INFO - [logger_config.py:65] - Sistema di logging inizializzato - File: C:\Users\gtesta\PythonProjetcs\Python\Analisi_scraps\app.log
+2025-11-10 13:53:35 - EmailSender - INFO - [logger_config.py:66] - ================================================================================
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [logger_config.py:64] - ================================================================================
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [logger_config.py:65] - Sistema di logging inizializzato - File: C:\Users\gtesta\PythonProjetcs\Python\Analisi_scraps\app.log
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [logger_config.py:66] - ================================================================================
+2025-11-10 13:53:35 - MainApplication - INFO - [logger_config.py:64] - ================================================================================
+2025-11-10 13:53:35 - MainApplication - INFO - [logger_config.py:65] - Sistema di logging inizializzato - File: C:\Users\gtesta\PythonProjetcs\Python\Analisi_scraps\app.log
+2025-11-10 13:53:35 - MainApplication - INFO - [logger_config.py:66] - ================================================================================
+2025-11-10 13:53:35 - MainApplication - INFO - [main.py:366] - 
+================================================================================
+2025-11-10 13:53:35 - MainApplication - INFO - [main.py:367] - SISTEMA AI REPORT GENERATOR - ESEMPI DI UTILIZZO
+2025-11-10 13:53:35 - MainApplication - INFO - [main.py:368] - ================================================================================
+2025-11-10 13:53:35 - MainApplication - INFO - [main.py:369] - Data/Ora: 10/11/2025 13:53:35
+2025-11-10 13:53:35 - MainApplication - INFO - [main.py:370] - Directory corrente: C:\Users\gtesta\PythonProjetcs\Python\Analisi_scraps
+2025-11-10 13:53:35 - MainApplication - INFO - [main.py:371] - ================================================================================
+2025-11-10 13:53:35 - MainApplication - INFO - [main.py:376] - Directory './reports' pronta
+2025-11-10 13:53:35 - MainApplication - INFO - [main.py:379] - 
+################################################################################
+2025-11-10 13:53:35 - MainApplication - INFO - [main.py:380] - ESECUZIONE ESEMPI
+2025-11-10 13:53:35 - MainApplication - INFO - [main.py:381] - ################################################################################
+2025-11-10 13:53:35 - MainApplication - INFO - [main.py:176] - 
+================================================================================
+2025-11-10 13:53:35 - MainApplication - INFO - [main.py:177] - ESEMPIO 1: Generazione Base PDF + Excel
+2025-11-10 13:53:35 - MainApplication - INFO - [main.py:178] - ================================================================================
+2025-11-10 13:53:35 - MainApplication - INFO - [main.py:22] - Creazione dati analisi di esempio
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:33] - ================================================================================
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:34] - Inizializzazione AIReportGenerator
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:35] - ================================================================================
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:48] - Nessuna configurazione SMTP fornita - funzionalità email disabilitate
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:50] - AIReportGenerator inizializzato con successo
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:84] - ================================================================================
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:85] - INIZIO GENERAZIONE REPORT COMPLETO: Report Analisi Wave Soldering Q4 2025
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:86] - ================================================================================
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:87] - Parametri: PDF=True, Excel=True, Email=False
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:107] - Dati analisi validati - Chiavi: ['version', 'analysis_type', 'executive_summary', 'key_stats', 'metrics', 'detailed_analysis', 'recommendations', 'raw_data', 'charts', 'tables']
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:112] - Directory output: ./reports
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:122] - ------------------------------------------------------------
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:123] - GENERAZIONE PDF
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:124] - ------------------------------------------------------------
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:130] - Generazione PDF: Report_AI_20251110_135335.pdf
+2025-11-10 13:53:35 - PDFGenerator - INFO - [pdf_generator.py:46] - Inizializzazione PDFReportGenerator - Titolo: Report Analisi Wave Soldering Q4 2025
+2025-11-10 13:53:35 - PDFGenerator - ERROR - [pdf_generator.py:49] - ReportLab non disponibile. Installare con: pip install reportlab
+2025-11-10 13:53:35 - AIReportGenerator - ERROR - [ai_report_generator.py:152] - Errore generazione PDF: ReportLab non installato
+Traceback (most recent call last):
+  File "C:\Users\gtesta\PythonProjetcs\Python\Analisi_scraps\ai_report_generator.py", line 131, in generate_complete_report
+    pdf_generator = PDFReportGenerator(title=title)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gtesta\PythonProjetcs\Python\Analisi_scraps\pdf_generator.py", line 50, in __init__
+    raise ImportError("ReportLab non installato")
+ImportError: ReportLab non installato
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:157] - ------------------------------------------------------------
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:158] - GENERAZIONE EXCEL
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:159] - ------------------------------------------------------------
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:165] - Generazione Excel: Report_AI_20251110_135335.xlsx
+2025-11-10 13:53:35 - ExcelGenerator - INFO - [excel_generator.py:39] - Inizializzazione ExcelReportGenerator - Titolo: Report Analisi Wave Soldering Q4 2025
+2025-11-10 13:53:35 - ExcelGenerator - INFO - [excel_generator.py:55] - ExcelReportGenerator inizializzato con successo
+2025-11-10 13:53:35 - ExcelGenerator - INFO - [excel_generator.py:101] - Inizio generazione report Excel
+2025-11-10 13:53:35 - ExcelGenerator - INFO - [excel_generator.py:122] - Salvataggio Excel su file: ./reports\Report_AI_20251110_135335.xlsx
+2025-11-10 13:53:35 - ExcelGenerator - INFO - [excel_generator.py:124] - Excel salvato in: ./reports\Report_AI_20251110_135335.xlsx
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:183] - ✓ Excel generato con successo: ./reports\Report_AI_20251110_135335.xlsx
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:241] - ================================================================================
+2025-11-10 13:53:35 - AIReportGenerator - WARNING - [ai_report_generator.py:245] - ⚠ REPORT GENERATO CON ERRORI: 1 errori
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:246] - ================================================================================
+2025-11-10 13:53:35 - MainApplication - ERROR - [main.py:203] - ✗ Errori nella generazione: ['Errore generazione PDF: ReportLab non installato']
+2025-11-10 13:53:35 - MainApplication - INFO - [main.py:282] - 
+================================================================================
+2025-11-10 13:53:35 - MainApplication - INFO - [main.py:283] - ESEMPIO 3: Generazione Rapida
+2025-11-10 13:53:35 - MainApplication - INFO - [main.py:284] - ================================================================================
+2025-11-10 13:53:35 - MainApplication - INFO - [main.py:22] - Creazione dati analisi di esempio
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:427] - Generazione rapida report: Report Rapido Wave Soldering
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:33] - ================================================================================
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:34] - Inizializzazione AIReportGenerator
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:35] - ================================================================================
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:48] - Nessuna configurazione SMTP fornita - funzionalità email disabilitate
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:50] - AIReportGenerator inizializzato con successo
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:84] - ================================================================================
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:85] - INIZIO GENERAZIONE REPORT COMPLETO: Report Rapido Wave Soldering
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:86] - ================================================================================
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:87] - Parametri: PDF=True, Excel=True, Email=False
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:107] - Dati analisi validati - Chiavi: ['version', 'analysis_type', 'executive_summary', 'key_stats', 'metrics', 'detailed_analysis', 'recommendations', 'raw_data', 'charts', 'tables']
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:112] - Directory output: ./reports
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:122] - ------------------------------------------------------------
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:123] - GENERAZIONE PDF
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:124] - ------------------------------------------------------------
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:130] - Generazione PDF: Report_AI_20251110_135335.pdf
+2025-11-10 13:53:35 - PDFGenerator - INFO - [pdf_generator.py:46] - Inizializzazione PDFReportGenerator - Titolo: Report Rapido Wave Soldering
+2025-11-10 13:53:35 - PDFGenerator - ERROR - [pdf_generator.py:49] - ReportLab non disponibile. Installare con: pip install reportlab
+2025-11-10 13:53:35 - AIReportGenerator - ERROR - [ai_report_generator.py:152] - Errore generazione PDF: ReportLab non installato
+Traceback (most recent call last):
+  File "C:\Users\gtesta\PythonProjetcs\Python\Analisi_scraps\ai_report_generator.py", line 131, in generate_complete_report
+    pdf_generator = PDFReportGenerator(title=title)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gtesta\PythonProjetcs\Python\Analisi_scraps\pdf_generator.py", line 50, in __init__
+    raise ImportError("ReportLab non installato")
+ImportError: ReportLab non installato
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:157] - ------------------------------------------------------------
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:158] - GENERAZIONE EXCEL
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:159] - ------------------------------------------------------------
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:165] - Generazione Excel: Report_AI_20251110_135335.xlsx
+2025-11-10 13:53:35 - ExcelGenerator - INFO - [excel_generator.py:39] - Inizializzazione ExcelReportGenerator - Titolo: Report Rapido Wave Soldering
+2025-11-10 13:53:35 - ExcelGenerator - INFO - [excel_generator.py:55] - ExcelReportGenerator inizializzato con successo
+2025-11-10 13:53:35 - ExcelGenerator - INFO - [excel_generator.py:101] - Inizio generazione report Excel
+2025-11-10 13:53:35 - ExcelGenerator - INFO - [excel_generator.py:122] - Salvataggio Excel su file: ./reports\Report_AI_20251110_135335.xlsx
+2025-11-10 13:53:35 - ExcelGenerator - INFO - [excel_generator.py:124] - Excel salvato in: ./reports\Report_AI_20251110_135335.xlsx
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:183] - ✓ Excel generato con successo: ./reports\Report_AI_20251110_135335.xlsx
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:241] - ================================================================================
+2025-11-10 13:53:35 - AIReportGenerator - WARNING - [ai_report_generator.py:245] - ⚠ REPORT GENERATO CON ERRORI: 1 errori
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:246] - ================================================================================
+2025-11-10 13:53:35 - MainApplication - ERROR - [main.py:302] - ✗ Errori: ['Errore generazione PDF: ReportLab non installato']
+2025-11-10 13:53:35 - MainApplication - INFO - [main.py:315] - 
+================================================================================
+2025-11-10 13:53:35 - MainApplication - INFO - [main.py:316] - ESEMPIO 4: Generazione Formati Individuali
+2025-11-10 13:53:35 - MainApplication - INFO - [main.py:317] - ================================================================================
+2025-11-10 13:53:35 - MainApplication - INFO - [main.py:22] - Creazione dati analisi di esempio
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:33] - ================================================================================
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:34] - Inizializzazione AIReportGenerator
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:35] - ================================================================================
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:48] - Nessuna configurazione SMTP fornita - funzionalità email disabilitate
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:50] - AIReportGenerator inizializzato con successo
+2025-11-10 13:53:35 - MainApplication - INFO - [main.py:327] - 
+Generazione solo PDF...
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:309] - Generazione solo PDF: Report PDF Wave Soldering
+2025-11-10 13:53:35 - PDFGenerator - INFO - [pdf_generator.py:478] - Generazione rapida PDF: Report PDF Wave Soldering
+2025-11-10 13:53:35 - PDFGenerator - INFO - [pdf_generator.py:46] - Inizializzazione PDFReportGenerator - Titolo: Report PDF Wave Soldering
+2025-11-10 13:53:35 - PDFGenerator - ERROR - [pdf_generator.py:49] - ReportLab non disponibile. Installare con: pip install reportlab
+2025-11-10 13:53:35 - PDFGenerator - ERROR - [pdf_generator.py:485] - Errore nella generazione rapida PDF: ReportLab non installato
+Traceback (most recent call last):
+  File "C:\Users\gtesta\PythonProjetcs\Python\Analisi_scraps\pdf_generator.py", line 480, in generate_pdf_report
+    generator = PDFReportGenerator(title=title)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gtesta\PythonProjetcs\Python\Analisi_scraps\pdf_generator.py", line 50, in __init__
+    raise ImportError("ReportLab non installato")
+ImportError: ReportLab non installato
+2025-11-10 13:53:35 - AIReportGenerator - ERROR - [ai_report_generator.py:321] - Errore generazione PDF: ReportLab non installato
+Traceback (most recent call last):
+  File "C:\Users\gtesta\PythonProjetcs\Python\Analisi_scraps\ai_report_generator.py", line 316, in generate_pdf_only
+    pdf_path = generate_pdf_report(analysis_data, output_path, title)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gtesta\PythonProjetcs\Python\Analisi_scraps\pdf_generator.py", line 480, in generate_pdf_report
+    generator = PDFReportGenerator(title=title)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gtesta\PythonProjetcs\Python\Analisi_scraps\pdf_generator.py", line 50, in __init__
+    raise ImportError("ReportLab non installato")
+ImportError: ReportLab non installato
+2025-11-10 13:53:35 - MainApplication - INFO - [main.py:337] - 
+Generazione solo Excel...
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:337] - Generazione solo Excel: Report Excel Wave Soldering
+2025-11-10 13:53:35 - ExcelGenerator - INFO - [excel_generator.py:490] - Generazione rapida Excel: Report Excel Wave Soldering
+2025-11-10 13:53:35 - ExcelGenerator - INFO - [excel_generator.py:39] - Inizializzazione ExcelReportGenerator - Titolo: Report Excel Wave Soldering
+2025-11-10 13:53:35 - ExcelGenerator - INFO - [excel_generator.py:55] - ExcelReportGenerator inizializzato con successo
+2025-11-10 13:53:35 - ExcelGenerator - INFO - [excel_generator.py:101] - Inizio generazione report Excel
+2025-11-10 13:53:35 - ExcelGenerator - INFO - [excel_generator.py:122] - Salvataggio Excel su file: ./reports/report_only_excel.xlsx
+2025-11-10 13:53:35 - ExcelGenerator - INFO - [excel_generator.py:124] - Excel salvato in: ./reports/report_only_excel.xlsx
+2025-11-10 13:53:35 - ExcelGenerator - INFO - [excel_generator.py:494] - Excel generato con successo tramite funzione di utilità
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:345] - ✓ Excel generato: ./reports/report_only_excel.xlsx
+2025-11-10 13:53:35 - MainApplication - INFO - [main.py:344] - ✓ Excel generato: ./reports/report_only_excel.xlsx
+2025-11-10 13:53:35 - MainApplication - INFO - [main.py:347] - 
+Salvataggio dati JSON...
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:363] - Salvataggio dati analisi in JSON
+2025-11-10 13:53:35 - AIReportGenerator - INFO - [ai_report_generator.py:373] - ✓ Dati analisi salvati: ./reports/analysis_data.json
+2025-11-10 13:53:35 - MainApplication - INFO - [main.py:353] - ✓ JSON salvato: ./reports/analysis_data.json
+2025-11-10 13:53:35 - MainApplication - INFO - [main.py:396] - 
+================================================================================
+2025-11-10 13:53:35 - MainApplication - INFO - [main.py:397] - ✓ TUTTI GLI ESEMPI COMPLETATI
+2025-11-10 13:53:35 - MainApplication - INFO - [main.py:398] - ================================================================================
+2025-11-10 13:53:35 - MainApplication - INFO - [main.py:399] - Controlla la directory './reports' per i file generati
+2025-11-10 13:53:35 - MainApplication - INFO - [main.py:400] - Controlla il file 'app.log' per i log dettagliati
+2025-11-10 13:54:48 - AIReportSystem - INFO - [logger_config.py:64] - ================================================================================
+2025-11-10 13:54:48 - AIReportSystem - INFO - [logger_config.py:65] - Sistema di logging inizializzato - File: C:\Users\gtesta\PythonProjetcs\Python\Analisi_scraps\app.log
+2025-11-10 13:54:48 - AIReportSystem - INFO - [logger_config.py:66] - ================================================================================
+2025-11-10 13:54:49 - PDFGenerator - INFO - [logger_config.py:64] - ================================================================================
+2025-11-10 13:54:49 - PDFGenerator - INFO - [logger_config.py:65] - Sistema di logging inizializzato - File: C:\Users\gtesta\PythonProjetcs\Python\Analisi_scraps\app.log
+2025-11-10 13:54:49 - PDFGenerator - INFO - [logger_config.py:66] - ================================================================================
+2025-11-10 13:54:49 - ExcelGenerator - INFO - [logger_config.py:64] - ================================================================================
+2025-11-10 13:54:49 - ExcelGenerator - INFO - [logger_config.py:65] - Sistema di logging inizializzato - File: C:\Users\gtesta\PythonProjetcs\Python\Analisi_scraps\app.log
+2025-11-10 13:54:49 - ExcelGenerator - INFO - [logger_config.py:66] - ================================================================================
+2025-11-10 13:54:49 - EmailSender - INFO - [logger_config.py:64] - ================================================================================
+2025-11-10 13:54:49 - EmailSender - INFO - [logger_config.py:65] - Sistema di logging inizializzato - File: C:\Users\gtesta\PythonProjetcs\Python\Analisi_scraps\app.log
+2025-11-10 13:54:49 - EmailSender - INFO - [logger_config.py:66] - ================================================================================
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [logger_config.py:64] - ================================================================================
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [logger_config.py:65] - Sistema di logging inizializzato - File: C:\Users\gtesta\PythonProjetcs\Python\Analisi_scraps\app.log
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [logger_config.py:66] - ================================================================================
+2025-11-10 13:54:49 - MainApplication - INFO - [logger_config.py:64] - ================================================================================
+2025-11-10 13:54:49 - MainApplication - INFO - [logger_config.py:65] - Sistema di logging inizializzato - File: C:\Users\gtesta\PythonProjetcs\Python\Analisi_scraps\app.log
+2025-11-10 13:54:49 - MainApplication - INFO - [logger_config.py:66] - ================================================================================
+2025-11-10 13:54:49 - MainApplication - INFO - [main.py:366] - 
+================================================================================
+2025-11-10 13:54:49 - MainApplication - INFO - [main.py:367] - SISTEMA AI REPORT GENERATOR - ESEMPI DI UTILIZZO
+2025-11-10 13:54:49 - MainApplication - INFO - [main.py:368] - ================================================================================
+2025-11-10 13:54:49 - MainApplication - INFO - [main.py:369] - Data/Ora: 10/11/2025 13:54:49
+2025-11-10 13:54:49 - MainApplication - INFO - [main.py:370] - Directory corrente: C:\Users\gtesta\PythonProjetcs\Python\Analisi_scraps
+2025-11-10 13:54:49 - MainApplication - INFO - [main.py:371] - ================================================================================
+2025-11-10 13:54:49 - MainApplication - INFO - [main.py:376] - Directory './reports' pronta
+2025-11-10 13:54:49 - MainApplication - INFO - [main.py:379] - 
+################################################################################
+2025-11-10 13:54:49 - MainApplication - INFO - [main.py:380] - ESECUZIONE ESEMPI
+2025-11-10 13:54:49 - MainApplication - INFO - [main.py:381] - ################################################################################
+2025-11-10 13:54:49 - MainApplication - INFO - [main.py:176] - 
+================================================================================
+2025-11-10 13:54:49 - MainApplication - INFO - [main.py:177] - ESEMPIO 1: Generazione Base PDF + Excel
+2025-11-10 13:54:49 - MainApplication - INFO - [main.py:178] - ================================================================================
+2025-11-10 13:54:49 - MainApplication - INFO - [main.py:22] - Creazione dati analisi di esempio
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:33] - ================================================================================
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:34] - Inizializzazione AIReportGenerator
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:35] - ================================================================================
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:48] - Nessuna configurazione SMTP fornita - funzionalità email disabilitate
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:50] - AIReportGenerator inizializzato con successo
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:84] - ================================================================================
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:85] - INIZIO GENERAZIONE REPORT COMPLETO: Report Analisi Wave Soldering Q4 2025
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:86] - ================================================================================
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:87] - Parametri: PDF=True, Excel=True, Email=False
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:107] - Dati analisi validati - Chiavi: ['version', 'analysis_type', 'executive_summary', 'key_stats', 'metrics', 'detailed_analysis', 'recommendations', 'raw_data', 'charts', 'tables']
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:112] - Directory output: ./reports
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:122] - ------------------------------------------------------------
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:123] - GENERAZIONE PDF
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:124] - ------------------------------------------------------------
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:130] - Generazione PDF: Report_AI_20251110_135449.pdf
+2025-11-10 13:54:49 - PDFGenerator - INFO - [pdf_generator.py:46] - Inizializzazione PDFReportGenerator - Titolo: Report Analisi Wave Soldering Q4 2025
+2025-11-10 13:54:49 - PDFGenerator - INFO - [pdf_generator.py:57] - PDFReportGenerator inizializzato con successo
+2025-11-10 13:54:49 - PDFGenerator - INFO - [pdf_generator.py:118] - Inizio generazione report PDF
+2025-11-10 13:54:49 - PDFGenerator - INFO - [pdf_generator.py:124] - Generazione PDF su file: ./reports\Report_AI_20251110_135449.pdf
+2025-11-10 13:54:49 - PDFGenerator - INFO - [pdf_generator.py:176] - Building PDF document...
+2025-11-10 13:54:49 - PDFGenerator - INFO - [pdf_generator.py:179] - Report PDF generato con successo
+2025-11-10 13:54:49 - PDFGenerator - INFO - [pdf_generator.py:182] - PDF salvato in: ./reports\Report_AI_20251110_135449.pdf
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:148] - ✓ PDF generato con successo: ./reports\Report_AI_20251110_135449.pdf
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:157] - ------------------------------------------------------------
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:158] - GENERAZIONE EXCEL
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:159] - ------------------------------------------------------------
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:165] - Generazione Excel: Report_AI_20251110_135449.xlsx
+2025-11-10 13:54:49 - ExcelGenerator - INFO - [excel_generator.py:39] - Inizializzazione ExcelReportGenerator - Titolo: Report Analisi Wave Soldering Q4 2025
+2025-11-10 13:54:49 - ExcelGenerator - INFO - [excel_generator.py:55] - ExcelReportGenerator inizializzato con successo
+2025-11-10 13:54:49 - ExcelGenerator - INFO - [excel_generator.py:101] - Inizio generazione report Excel
+2025-11-10 13:54:49 - ExcelGenerator - INFO - [excel_generator.py:122] - Salvataggio Excel su file: ./reports\Report_AI_20251110_135449.xlsx
+2025-11-10 13:54:49 - ExcelGenerator - INFO - [excel_generator.py:124] - Excel salvato in: ./reports\Report_AI_20251110_135449.xlsx
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:183] - ✓ Excel generato con successo: ./reports\Report_AI_20251110_135449.xlsx
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:241] - ================================================================================
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:243] - ✓ REPORT COMPLETO GENERATO CON SUCCESSO
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:246] - ================================================================================
+2025-11-10 13:54:49 - MainApplication - INFO - [main.py:199] - ✓ Report generato con successo!
+2025-11-10 13:54:49 - MainApplication - INFO - [main.py:200] -   PDF: ./reports\Report_AI_20251110_135449.pdf
+2025-11-10 13:54:49 - MainApplication - INFO - [main.py:201] -   Excel: ./reports\Report_AI_20251110_135449.xlsx
+2025-11-10 13:54:49 - MainApplication - INFO - [main.py:282] - 
+================================================================================
+2025-11-10 13:54:49 - MainApplication - INFO - [main.py:283] - ESEMPIO 3: Generazione Rapida
+2025-11-10 13:54:49 - MainApplication - INFO - [main.py:284] - ================================================================================
+2025-11-10 13:54:49 - MainApplication - INFO - [main.py:22] - Creazione dati analisi di esempio
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:427] - Generazione rapida report: Report Rapido Wave Soldering
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:33] - ================================================================================
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:34] - Inizializzazione AIReportGenerator
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:35] - ================================================================================
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:48] - Nessuna configurazione SMTP fornita - funzionalità email disabilitate
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:50] - AIReportGenerator inizializzato con successo
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:84] - ================================================================================
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:85] - INIZIO GENERAZIONE REPORT COMPLETO: Report Rapido Wave Soldering
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:86] - ================================================================================
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:87] - Parametri: PDF=True, Excel=True, Email=False
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:107] - Dati analisi validati - Chiavi: ['version', 'analysis_type', 'executive_summary', 'key_stats', 'metrics', 'detailed_analysis', 'recommendations', 'raw_data', 'charts', 'tables']
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:112] - Directory output: ./reports
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:122] - ------------------------------------------------------------
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:123] - GENERAZIONE PDF
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:124] - ------------------------------------------------------------
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:130] - Generazione PDF: Report_AI_20251110_135449.pdf
+2025-11-10 13:54:49 - PDFGenerator - INFO - [pdf_generator.py:46] - Inizializzazione PDFReportGenerator - Titolo: Report Rapido Wave Soldering
+2025-11-10 13:54:49 - PDFGenerator - INFO - [pdf_generator.py:57] - PDFReportGenerator inizializzato con successo
+2025-11-10 13:54:49 - PDFGenerator - INFO - [pdf_generator.py:118] - Inizio generazione report PDF
+2025-11-10 13:54:49 - PDFGenerator - INFO - [pdf_generator.py:124] - Generazione PDF su file: ./reports\Report_AI_20251110_135449.pdf
+2025-11-10 13:54:49 - PDFGenerator - INFO - [pdf_generator.py:176] - Building PDF document...
+2025-11-10 13:54:49 - PDFGenerator - INFO - [pdf_generator.py:179] - Report PDF generato con successo
+2025-11-10 13:54:49 - PDFGenerator - INFO - [pdf_generator.py:182] - PDF salvato in: ./reports\Report_AI_20251110_135449.pdf
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:148] - ✓ PDF generato con successo: ./reports\Report_AI_20251110_135449.pdf
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:157] - ------------------------------------------------------------
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:158] - GENERAZIONE EXCEL
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:159] - ------------------------------------------------------------
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:165] - Generazione Excel: Report_AI_20251110_135449.xlsx
+2025-11-10 13:54:49 - ExcelGenerator - INFO - [excel_generator.py:39] - Inizializzazione ExcelReportGenerator - Titolo: Report Rapido Wave Soldering
+2025-11-10 13:54:49 - ExcelGenerator - INFO - [excel_generator.py:55] - ExcelReportGenerator inizializzato con successo
+2025-11-10 13:54:49 - ExcelGenerator - INFO - [excel_generator.py:101] - Inizio generazione report Excel
+2025-11-10 13:54:49 - ExcelGenerator - INFO - [excel_generator.py:122] - Salvataggio Excel su file: ./reports\Report_AI_20251110_135449.xlsx
+2025-11-10 13:54:49 - ExcelGenerator - INFO - [excel_generator.py:124] - Excel salvato in: ./reports\Report_AI_20251110_135449.xlsx
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:183] - ✓ Excel generato con successo: ./reports\Report_AI_20251110_135449.xlsx
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:241] - ================================================================================
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:243] - ✓ REPORT COMPLETO GENERATO CON SUCCESSO
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:246] - ================================================================================
+2025-11-10 13:54:49 - MainApplication - INFO - [main.py:298] - ✓ Report rapido generato con successo!
+2025-11-10 13:54:49 - MainApplication - INFO - [main.py:299] -   PDF: ./reports\Report_AI_20251110_135449.pdf
+2025-11-10 13:54:49 - MainApplication - INFO - [main.py:300] -   Excel: ./reports\Report_AI_20251110_135449.xlsx
+2025-11-10 13:54:49 - MainApplication - INFO - [main.py:315] - 
+================================================================================
+2025-11-10 13:54:49 - MainApplication - INFO - [main.py:316] - ESEMPIO 4: Generazione Formati Individuali
+2025-11-10 13:54:49 - MainApplication - INFO - [main.py:317] - ================================================================================
+2025-11-10 13:54:49 - MainApplication - INFO - [main.py:22] - Creazione dati analisi di esempio
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:33] - ================================================================================
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:34] - Inizializzazione AIReportGenerator
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:35] - ================================================================================
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:48] - Nessuna configurazione SMTP fornita - funzionalità email disabilitate
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:50] - AIReportGenerator inizializzato con successo
+2025-11-10 13:54:49 - MainApplication - INFO - [main.py:327] - 
+Generazione solo PDF...
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:309] - Generazione solo PDF: Report PDF Wave Soldering
+2025-11-10 13:54:49 - PDFGenerator - INFO - [pdf_generator.py:478] - Generazione rapida PDF: Report PDF Wave Soldering
+2025-11-10 13:54:49 - PDFGenerator - INFO - [pdf_generator.py:46] - Inizializzazione PDFReportGenerator - Titolo: Report PDF Wave Soldering
+2025-11-10 13:54:49 - PDFGenerator - INFO - [pdf_generator.py:57] - PDFReportGenerator inizializzato con successo
+2025-11-10 13:54:49 - PDFGenerator - INFO - [pdf_generator.py:118] - Inizio generazione report PDF
+2025-11-10 13:54:49 - PDFGenerator - INFO - [pdf_generator.py:124] - Generazione PDF su file: ./reports/report_only_pdf.pdf
+2025-11-10 13:54:49 - PDFGenerator - INFO - [pdf_generator.py:176] - Building PDF document...
+2025-11-10 13:54:49 - PDFGenerator - INFO - [pdf_generator.py:179] - Report PDF generato con successo
+2025-11-10 13:54:49 - PDFGenerator - INFO - [pdf_generator.py:182] - PDF salvato in: ./reports/report_only_pdf.pdf
+2025-11-10 13:54:49 - PDFGenerator - INFO - [pdf_generator.py:482] - PDF generato con successo tramite funzione di utilità
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:317] - ✓ PDF generato: ./reports/report_only_pdf.pdf
+2025-11-10 13:54:49 - MainApplication - INFO - [main.py:334] - ✓ PDF generato: ./reports/report_only_pdf.pdf
+2025-11-10 13:54:49 - MainApplication - INFO - [main.py:337] - 
+Generazione solo Excel...
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:337] - Generazione solo Excel: Report Excel Wave Soldering
+2025-11-10 13:54:49 - ExcelGenerator - INFO - [excel_generator.py:490] - Generazione rapida Excel: Report Excel Wave Soldering
+2025-11-10 13:54:49 - ExcelGenerator - INFO - [excel_generator.py:39] - Inizializzazione ExcelReportGenerator - Titolo: Report Excel Wave Soldering
+2025-11-10 13:54:49 - ExcelGenerator - INFO - [excel_generator.py:55] - ExcelReportGenerator inizializzato con successo
+2025-11-10 13:54:49 - ExcelGenerator - INFO - [excel_generator.py:101] - Inizio generazione report Excel
+2025-11-10 13:54:49 - ExcelGenerator - INFO - [excel_generator.py:122] - Salvataggio Excel su file: ./reports/report_only_excel.xlsx
+2025-11-10 13:54:49 - ExcelGenerator - INFO - [excel_generator.py:124] - Excel salvato in: ./reports/report_only_excel.xlsx
+2025-11-10 13:54:49 - ExcelGenerator - INFO - [excel_generator.py:494] - Excel generato con successo tramite funzione di utilità
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:345] - ✓ Excel generato: ./reports/report_only_excel.xlsx
+2025-11-10 13:54:49 - MainApplication - INFO - [main.py:344] - ✓ Excel generato: ./reports/report_only_excel.xlsx
+2025-11-10 13:54:49 - MainApplication - INFO - [main.py:347] - 
+Salvataggio dati JSON...
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:363] - Salvataggio dati analisi in JSON
+2025-11-10 13:54:49 - AIReportGenerator - INFO - [ai_report_generator.py:373] - ✓ Dati analisi salvati: ./reports/analysis_data.json
+2025-11-10 13:54:49 - MainApplication - INFO - [main.py:353] - ✓ JSON salvato: ./reports/analysis_data.json
+2025-11-10 13:54:49 - MainApplication - INFO - [main.py:396] - 
+================================================================================
+2025-11-10 13:54:49 - MainApplication - INFO - [main.py:397] - ✓ TUTTI GLI ESEMPI COMPLETATI
+2025-11-10 13:54:49 - MainApplication - INFO - [main.py:398] - ================================================================================
+2025-11-10 13:54:49 - MainApplication - INFO - [main.py:399] - Controlla la directory './reports' per i file generati
+2025-11-10 13:54:49 - MainApplication - INFO - [main.py:400] - Controlla il file 'app.log' per i log dettagliati
+2025-11-10 13:58:22 - AIReportSystem - INFO - [logger_config.py:64] - ================================================================================
+2025-11-10 13:58:22 - AIReportSystem - INFO - [logger_config.py:65] - Sistema di logging inizializzato - File: C:\Users\gtesta\PythonProjetcs\Python\Analisi_scraps\app.log
+2025-11-10 13:58:22 - AIReportSystem - INFO - [logger_config.py:66] - ================================================================================
+2025-11-10 13:58:22 - PDFGenerator - INFO - [logger_config.py:64] - ================================================================================
+2025-11-10 13:58:22 - PDFGenerator - INFO - [logger_config.py:65] - Sistema di logging inizializzato - File: C:\Users\gtesta\PythonProjetcs\Python\Analisi_scraps\app.log
+2025-11-10 13:58:22 - PDFGenerator - INFO - [logger_config.py:66] - ================================================================================
+2025-11-10 13:58:22 - ExcelGenerator - INFO - [logger_config.py:64] - ================================================================================
+2025-11-10 13:58:22 - ExcelGenerator - INFO - [logger_config.py:65] - Sistema di logging inizializzato - File: C:\Users\gtesta\PythonProjetcs\Python\Analisi_scraps\app.log
+2025-11-10 13:58:22 - ExcelGenerator - INFO - [logger_config.py:66] - ================================================================================
+2025-11-10 13:58:22 - EmailSender - INFO - [logger_config.py:64] - ================================================================================
+2025-11-10 13:58:22 - EmailSender - INFO - [logger_config.py:65] - Sistema di logging inizializzato - File: C:\Users\gtesta\PythonProjetcs\Python\Analisi_scraps\app.log
+2025-11-10 13:58:22 - EmailSender - INFO - [logger_config.py:66] - ================================================================================
+2025-11-10 13:58:22 - AIReportGenerator - INFO - [logger_config.py:64] - ================================================================================
+2025-11-10 13:58:22 - AIReportGenerator - INFO - [logger_config.py:65] - Sistema di logging inizializzato - File: C:\Users\gtesta\PythonProjetcs\Python\Analisi_scraps\app.log
+2025-11-10 13:58:22 - AIReportGenerator - INFO - [logger_config.py:66] - ================================================================================
+2025-11-10 13:58:22 - MainApplication - INFO - [logger_config.py:64] - ================================================================================
+2025-11-10 13:58:22 - MainApplication - INFO - [logger_config.py:65] - Sistema di logging inizializzato - File: C:\Users\gtesta\PythonProjetcs\Python\Analisi_scraps\app.log
+2025-11-10 13:58:22 - MainApplication - INFO - [logger_config.py:66] - ================================================================================
+2025-11-10 13:59:37 - AIReportSystem - INFO - [logger_config.py:64] - ================================================================================
+2025-11-10 13:59:37 - AIReportSystem - INFO - [logger_config.py:65] - Sistema di logging inizializzato - File: C:\Users\gtesta\PythonProjetcs\Python\Analisi_scraps\app.log
+2025-11-10 13:59:37 - AIReportSystem - INFO - [logger_config.py:66] - ================================================================================
+2025-11-10 13:59:37 - PDFGenerator - INFO - [logger_config.py:64] - ================================================================================
+2025-11-10 13:59:37 - PDFGenerator - INFO - [logger_config.py:65] - Sistema di logging inizializzato - File: C:\Users\gtesta\PythonProjetcs\Python\Analisi_scraps\app.log
+2025-11-10 13:59:37 - PDFGenerator - INFO - [logger_config.py:66] - ================================================================================
+2025-11-10 13:59:37 - ExcelGenerator - INFO - [logger_config.py:64] - ================================================================================
+2025-11-10 13:59:37 - ExcelGenerator - INFO - [logger_config.py:65] - Sistema di logging inizializzato - File: C:\Users\gtesta\PythonProjetcs\Python\Analisi_scraps\app.log
+2025-11-10 13:59:37 - ExcelGenerator - INFO - [logger_config.py:66] - ================================================================================
+2025-11-10 13:59:37 - EmailSender - INFO - [logger_config.py:64] - ================================================================================
+2025-11-10 13:59:37 - EmailSender - INFO - [logger_config.py:65] - Sistema di logging inizializzato - File: C:\Users\gtesta\PythonProjetcs\Python\Analisi_scraps\app.log
+2025-11-10 13:59:37 - EmailSender - INFO - [logger_config.py:66] - ================================================================================
+2025-11-10 13:59:37 - AIReportGenerator - INFO - [logger_config.py:64] - ================================================================================
+2025-11-10 13:59:37 - AIReportGenerator - INFO - [logger_config.py:65] - Sistema di logging inizializzato - File: C:\Users\gtesta\PythonProjetcs\Python\Analisi_scraps\app.log
+2025-11-10 13:59:37 - AIReportGenerator - INFO - [logger_config.py:66] - ================================================================================
+2025-11-10 13:59:37 - MainApplication - INFO - [logger_config.py:64] - ================================================================================
+2025-11-10 13:59:37 - MainApplication - INFO - [logger_config.py:65] - Sistema di logging inizializzato - File: C:\Users\gtesta\PythonProjetcs\Python\Analisi_scraps\app.log
+2025-11-10 13:59:37 - MainApplication - INFO - [logger_config.py:66] - ================================================================================
+2025-11-10 13:59:37 - MainApplication - INFO - [main.py:22] - Creazione dati analisi di esempio
+2025-11-10 13:59:37 - AIReportGenerator - INFO - [ai_report_generator.py:33] - ================================================================================
+2025-11-10 13:59:37 - AIReportGenerator - INFO - [ai_report_generator.py:34] - Inizializzazione AIReportGenerator
+2025-11-10 13:59:37 - AIReportGenerator - INFO - [ai_report_generator.py:35] - ================================================================================
+2025-11-10 13:59:37 - AIReportGenerator - INFO - [ai_report_generator.py:48] - Nessuna configurazione SMTP fornita - funzionalità email disabilitate
+2025-11-10 13:59:37 - AIReportGenerator - INFO - [ai_report_generator.py:50] - AIReportGenerator inizializzato con successo
+2025-11-10 14:01:08 - AIReportSystem - INFO - [logger_config.py:64] - ================================================================================
+2025-11-10 14:01:08 - AIReportSystem - INFO - [logger_config.py:65] - Sistema di logging inizializzato - File: C:\Users\gtesta\PythonProjetcs\Python\Analisi_scraps\app.log
+2025-11-10 14:01:08 - AIReportSystem - INFO - [logger_config.py:66] - ================================================================================
+2025-11-10 14:01:08 - PDFGenerator - INFO - [logger_config.py:64] - ================================================================================
+2025-11-10 14:01:08 - PDFGenerator - INFO - [logger_config.py:65] - Sistema di logging inizializzato - File: C:\Users\gtesta\PythonProjetcs\Python\Analisi_scraps\app.log
+2025-11-10 14:01:08 - PDFGenerator - INFO - [logger_config.py:66] - ================================================================================
+2025-11-10 14:01:08 - ExcelGenerator - INFO - [logger_config.py:64] - ================================================================================
+2025-11-10 14:01:08 - ExcelGenerator - INFO - [logger_config.py:65] - Sistema di logging inizializzato - File: C:\Users\gtesta\PythonProjetcs\Python\Analisi_scraps\app.log
+2025-11-10 14:01:08 - ExcelGenerator - INFO - [logger_config.py:66] - ================================================================================
+2025-11-10 14:01:08 - EmailSender - INFO - [logger_config.py:64] - ================================================================================
+2025-11-10 14:01:08 - EmailSender - INFO - [logger_config.py:65] - Sistema di logging inizializzato - File: C:\Users\gtesta\PythonProjetcs\Python\Analisi_scraps\app.log
+2025-11-10 14:01:08 - EmailSender - INFO - [logger_config.py:66] - ================================================================================
+2025-11-10 14:01:08 - AIReportGenerator - INFO - [logger_config.py:64] - ================================================================================
+2025-11-10 14:01:08 - AIReportGenerator - INFO - [logger_config.py:65] - Sistema di logging inizializzato - File: C:\Users\gtesta\PythonProjetcs\Python\Analisi_scraps\app.log
+2025-11-10 14:01:08 - AIReportGenerator - INFO - [logger_config.py:66] - ================================================================================
+2025-11-10 14:01:08 - AIReportGenerator - INFO - [ai_report_generator.py:33] - ================================================================================
+2025-11-10 14:01:08 - AIReportGenerator - INFO - [ai_report_generator.py:34] - Inizializzazione AIReportGenerator
+2025-11-10 14:01:08 - AIReportGenerator - INFO - [ai_report_generator.py:35] - ================================================================================
+2025-11-10 14:01:08 - AIReportGenerator - INFO - [ai_report_generator.py:48] - Nessuna configurazione SMTP fornita - funzionalità email disabilitate
+2025-11-10 14:01:08 - AIReportGenerator - INFO - [ai_report_generator.py:50] - AIReportGenerator inizializzato con successo
+2025-11-10 14:02:29 - AIReportSystem - INFO - [logger_config.py:64] - ================================================================================
+2025-11-10 14:02:29 - AIReportSystem - INFO - [logger_config.py:65] - Sistema di logging inizializzato - File: C:\Users\gtesta\PythonProjetcs\Python\Analisi_scraps\app.log
+2025-11-10 14:02:29 - AIReportSystem - INFO - [logger_config.py:66] - ================================================================================
+2025-11-10 14:02:29 - PDFGenerator - INFO - [logger_config.py:64] - ================================================================================
+2025-11-10 14:02:29 - PDFGenerator - INFO - [logger_config.py:65] - Sistema di logging inizializzato - File: C:\Users\gtesta\PythonProjetcs\Python\Analisi_scraps\app.log
+2025-11-10 14:02:29 - PDFGenerator - INFO - [logger_config.py:66] - ================================================================================
+2025-11-10 14:02:29 - ExcelGenerator - INFO - [logger_config.py:64] - ================================================================================
+2025-11-10 14:02:29 - ExcelGenerator - INFO - [logger_config.py:65] - Sistema di logging inizializzato - File: C:\Users\gtesta\PythonProjetcs\Python\Analisi_scraps\app.log
+2025-11-10 14:02:29 - ExcelGenerator - INFO - [logger_config.py:66] - ================================================================================
+2025-11-10 14:02:29 - EmailSender - INFO - [logger_config.py:64] - ================================================================================
+2025-11-10 14:02:29 - EmailSender - INFO - [logger_config.py:65] - Sistema di logging inizializzato - File: C:\Users\gtesta\PythonProjetcs\Python\Analisi_scraps\app.log
+2025-11-10 14:02:29 - EmailSender - INFO - [logger_config.py:66] - ================================================================================
+2025-11-10 14:02:29 - AIReportGenerator - INFO - [logger_config.py:64] - ================================================================================
+2025-11-10 14:02:29 - AIReportGenerator - INFO - [logger_config.py:65] - Sistema di logging inizializzato - File: C:\Users\gtesta\PythonProjetcs\Python\Analisi_scraps\app.log
+2025-11-10 14:02:29 - AIReportGenerator - INFO - [logger_config.py:66] - ================================================================================
+2025-11-10 14:02:29 - AIReportGenerator - INFO - [ai_report_generator.py:33] - ================================================================================
+2025-11-10 14:02:29 - AIReportGenerator - INFO - [ai_report_generator.py:34] - Inizializzazione AIReportGenerator
+2025-11-10 14:02:29 - AIReportGenerator - INFO - [ai_report_generator.py:35] - ================================================================================
+2025-11-10 14:02:29 - AIReportGenerator - INFO - [ai_report_generator.py:48] - Nessuna configurazione SMTP fornita - funzionalità email disabilitate
+2025-11-10 14:02:29 - AIReportGenerator - INFO - [ai_report_generator.py:50] - AIReportGenerator inizializzato con successo

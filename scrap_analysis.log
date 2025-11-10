@@ -1,0 +1,283 @@
+2025-11-08 16:54:00,556 - root - INFO - Configurazione database caricata con successo
+2025-11-08 16:54:00,556 - root - INFO - Logo trovato: Logo.png
+2025-11-08 16:54:00,556 - root - INFO - Starting comprehensive analysis: 2025-11-01 to 2025-11-08
+2025-11-08 16:54:00,744 - root - ERROR - Errore nel recupero dati: ('42S02', "[42S02] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Invalid object name 'boards'. (208) (SQLExecDirectW); [42S02] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Statement(s) could not be prepared. (8180)")
+2025-11-08 16:54:00,745 - root - ERROR - Analysis failed: ('42S02', "[42S02] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Invalid object name 'boards'. (208) (SQLExecDirectW); [42S02] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Statement(s) could not be prepared. (8180)")
+2025-11-08 16:54:00,784 - root - ERROR - Application error: ('42S02', "[42S02] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Invalid object name 'boards'. (208) (SQLExecDirectW); [42S02] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Statement(s) could not be prepared. (8180)")
+2025-11-08 16:54:29,576 - root - INFO - Configurazione database caricata con successo
+2025-11-08 16:54:29,576 - root - INFO - Logo trovato: Logo.png
+2025-11-08 16:54:29,576 - root - INFO - Starting comprehensive analysis: 2025-11-01 to 2025-11-08
+2025-11-08 16:54:29,726 - root - ERROR - Errore nel recupero dati: ('42S02', "[42S02] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Invalid object name 'boards'. (208) (SQLExecDirectW); [42S02] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Statement(s) could not be prepared. (8180)")
+2025-11-08 16:54:29,726 - root - ERROR - Analysis failed: ('42S02', "[42S02] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Invalid object name 'boards'. (208) (SQLExecDirectW); [42S02] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Statement(s) could not be prepared. (8180)")
+2025-11-08 16:54:29,727 - root - ERROR - Application error: ('42S02', "[42S02] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Invalid object name 'boards'. (208) (SQLExecDirectW); [42S02] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Statement(s) could not be prepared. (8180)")
+2025-11-08 16:55:11,430 - root - INFO - Configurazione database caricata con successo
+2025-11-08 16:55:11,431 - root - INFO - Logo trovato: Logo.png
+2025-11-08 16:55:11,431 - root - INFO - Starting comprehensive analysis: 2025-11-01 to 2025-11-08
+2025-11-08 16:55:11,660 - root - ERROR - Errore nel recupero dati: ('The SQL contains 0 parameter markers, but 2 parameters were supplied', 'HY000')
+2025-11-08 16:55:11,664 - root - ERROR - Analysis failed: ('The SQL contains 0 parameter markers, but 2 parameters were supplied', 'HY000')
+2025-11-08 16:55:11,664 - root - ERROR - Application error: ('The SQL contains 0 parameter markers, but 2 parameters were supplied', 'HY000')
+2025-11-08 16:56:02,702 - root - INFO - Configurazione database caricata con successo
+2025-11-08 16:56:02,703 - root - INFO - Logo trovato: Logo.png
+2025-11-08 16:56:02,703 - root - INFO - Starting comprehensive analysis: 2025-11-01 to 2025-11-08
+2025-11-08 16:56:03,248 - root - INFO - Data loaded: 18 scraps, 1128 boards
+2025-11-08 16:56:03,401 - root - INFO - ✅ Excel report salvato: Vandewiele_Scrap_Analysis_20251108_165603.xlsx
+2025-11-08 16:56:03,442 - root - INFO - ✅ PDF report salvato: Vandewiele_Scrap_Summary_20251108_165603.pdf
+2025-11-08 16:56:03,442 - TraceabilityRS - ERROR - Errore nel recupero degli indirizzi email (Sys_Email_Quality): Attempt to use a closed connection.
+2025-11-08 16:56:03,442 - TraceabilityRS - ERROR - Errore nel recupero degli indirizzi email (Sys_Email_Production): Attempt to use a closed connection.
+2025-11-08 16:56:03,442 - TraceabilityRS - ERROR - Errore nel recupero degli indirizzi email (Sys_Email_Purchase): Attempt to use a closed connection.
+2025-11-08 16:56:03,443 - root - WARNING - Nessun destinatario trovato, usando lista di default
+2025-11-08 16:56:03,443 - root - ERROR - ❌ Invio email fallito: Attempt to use a closed connection.
+2025-11-08 16:56:03,443 - root - INFO - Comprehensive analysis completed successfully
+2025-11-08 17:03:22,809 - root - INFO - Configurazione database caricata con successo
+2025-11-08 17:03:22,809 - root - INFO - Logo trovato: Logo.png
+2025-11-08 17:03:22,810 - root - INFO - Starting comprehensive analysis: 2025-11-01 to 2025-11-08
+2025-11-08 17:03:23,291 - root - INFO - Data loaded: 18 scraps, 1128 boards
+2025-11-08 17:03:23,396 - root - INFO - ✅ Excel report salvato: Vandewiele_Scrap_Analysis_20251108_170323.xlsx
+2025-11-08 17:03:23,428 - root - INFO - ✅ PDF report salvato: Vandewiele_Scrap_Summary_20251108_170323.pdf
+2025-11-08 17:03:23,429 - TraceabilityRS - ERROR - Errore nel recupero degli indirizzi email (Sys_email_Quality): Attempt to use a closed connection.
+2025-11-08 17:03:23,429 - root - WARNING - Nessun destinatario trovato, usando lista di default
+2025-11-08 17:03:23,429 - root - ERROR - ❌ Invio email fallito: Attempt to use a closed connection.
+2025-11-08 17:03:23,429 - root - INFO - Comprehensive analysis completed successfully
+2025-11-08 17:04:49,282 - root - INFO - Configurazione database caricata con successo
+2025-11-08 17:04:49,282 - root - INFO - Logo trovato: Logo.png
+2025-11-08 17:04:49,282 - root - INFO - Starting comprehensive analysis: 2025-11-01 to 2025-11-08
+2025-11-08 17:04:49,747 - root - INFO - Data loaded: 18 scraps, 1128 boards
+2025-11-08 17:04:49,851 - root - INFO - ✅ Excel report salvato: Vandewiele_Scrap_Analysis_20251108_170449.xlsx
+2025-11-08 17:04:49,880 - root - INFO - ✅ PDF report salvato: Vandewiele_Scrap_Summary_20251108_170449.pdf
+2025-11-08 17:04:49,880 - TraceabilityRS - ERROR - Errore nel recupero degli indirizzi email (Sys_email_Quality): Attempt to use a closed connection.
+2025-11-08 17:04:49,880 - root - WARNING - Attributo Sys_email_Quality non trovato: Attempt to use a closed connection.
+2025-11-08 17:04:49,880 - root - WARNING - Nessun destinatario trovato, usando lista di default
+2025-11-08 17:04:50,986 - TraceabilityRS - INFO - Email inviata con successo a 1 destinatari
+2025-11-08 17:04:50,987 - root - INFO - ✅ Email inviata a 1 destinatari
+2025-11-08 17:04:50,989 - root - INFO - Comprehensive analysis completed successfully
+2025-11-08 17:05:27,605 - root - INFO - Configurazione database caricata con successo
+2025-11-08 17:05:27,606 - root - INFO - Logo trovato: Logo.png
+2025-11-08 17:05:27,606 - root - INFO - Starting comprehensive analysis: 2025-11-01 to 2025-11-08
+2025-11-08 17:05:28,072 - root - INFO - Data loaded: 18 scraps, 1128 boards
+2025-11-08 17:05:28,175 - root - INFO - ✅ Excel report salvato: Vandewiele_Scrap_Analysis_20251108_170528.xlsx
+2025-11-08 17:05:28,206 - root - INFO - ✅ PDF report salvato: Vandewiele_Scrap_Summary_20251108_170528.pdf
+2025-11-08 17:05:28,206 - TraceabilityRS - ERROR - Errore nel recupero degli indirizzi email (Sys_email_Quality): Attempt to use a closed connection.
+2025-11-08 17:05:28,206 - root - WARNING - Attributo Sys_email_Quality non trovato: Attempt to use a closed connection.
+2025-11-08 17:05:28,206 - root - WARNING - Nessun destinatario trovato, usando lista di default
+2025-11-08 17:05:29,177 - TraceabilityRS - INFO - Email inviata con successo a 1 destinatari
+2025-11-08 17:05:29,177 - root - INFO - ✅ Email inviata a 1 destinatari
+2025-11-08 17:05:29,178 - root - INFO - Comprehensive analysis completed successfully
+2025-11-08 17:06:14,544 - root - INFO - Configurazione database caricata con successo
+2025-11-08 17:06:14,545 - root - INFO - Logo trovato: Logo.png
+2025-11-08 17:06:14,545 - root - INFO - Starting comprehensive analysis: 2025-11-01 to 2025-11-08
+2025-11-08 17:06:14,995 - root - INFO - Data loaded: 18 scraps, 1128 boards
+2025-11-08 17:06:15,134 - root - INFO - ✅ Excel report salvato: Vandewiele_Scrap_Analysis_20251108_170615.xlsx
+2025-11-08 17:06:15,163 - root - INFO - ✅ PDF report salvato: Vandewiele_Scrap_Summary_20251108_170615.pdf
+2025-11-08 17:06:15,163 - TraceabilityRS - ERROR - Errore nel recupero degli indirizzi email (Sys_email_Quality): Attempt to use a closed connection.
+2025-11-08 17:06:15,164 - root - WARNING - Attributo Sys_email_Quality non trovato: Attempt to use a closed connection.
+2025-11-08 17:06:15,164 - root - WARNING - Nessun destinatario trovato, usando lista di default
+2025-11-08 17:06:16,353 - TraceabilityRS - INFO - Email inviata con successo a 1 destinatari
+2025-11-08 17:06:16,353 - root - INFO - ✅ Email inviata a 1 destinatari
+2025-11-08 17:06:16,354 - root - INFO - Comprehensive analysis completed successfully
+2025-11-08 17:08:40,062 - root - INFO - Configurazione database caricata con successo
+2025-11-08 17:08:40,063 - root - INFO - Logo trovato: Logo.png
+2025-11-08 17:08:40,063 - root - INFO - Starting comprehensive analysis: 2025-11-01 to 2025-11-08
+2025-11-08 17:08:40,532 - root - INFO - Data loaded: 18 scraps, 1128 boards
+2025-11-08 17:08:40,637 - root - INFO - ✅ Excel report salvato: Vandewiele_Scrap_Analysis_20251108_170840.xlsx
+2025-11-08 17:08:40,668 - root - INFO - ✅ PDF report salvato: Vandewiele_Scrap_Summary_20251108_170840.pdf
+2025-11-08 17:08:40,669 - TraceabilityRS - ERROR - Errore nel recupero degli indirizzi email (Sys_email_Quality): Attempt to use a closed connection.
+2025-11-08 17:08:40,669 - root - WARNING - Attributo Sys_email_Quality non trovato: Attempt to use a closed connection.
+2025-11-08 17:08:40,669 - root - WARNING - Nessun destinatario trovato, usando lista di default
+2025-11-08 17:08:41,778 - TraceabilityRS - INFO - Email inviata con successo a 1 destinatari
+2025-11-08 17:08:41,779 - root - INFO - ✅ Email inviata a 1 destinatari
+2025-11-08 17:08:41,781 - root - INFO - Comprehensive analysis completed successfully
+2025-11-08 17:11:34,108 - root - INFO - Configurazione database caricata con successo
+2025-11-08 17:11:34,109 - root - INFO - Logo trovato: Logo.png
+2025-11-08 17:11:34,109 - root - INFO - Starting comprehensive analysis: 2025-11-01 to 2025-11-08
+2025-11-08 17:11:34,576 - root - INFO - Data loaded: 18 scraps, 1128 boards
+2025-11-08 17:11:34,705 - root - INFO - ✅ Excel report salvato: Vandewiele_Scrap_Analysis_20251108_171134.xlsx
+2025-11-08 17:11:34,739 - root - INFO - ✅ PDF report salvato: Vandewiele_Scrap_Summary_20251108_171134.pdf
+2025-11-08 17:11:34,739 - TraceabilityRS - INFO - Eseguendo query per attributo: Sys_Email_Quality
+2025-11-08 17:11:34,739 - TraceabilityRS - ERROR - Errore nel recupero degli indirizzi email (Sys_Email_Quality): Attempt to use a closed connection.
+2025-11-08 17:11:34,739 - root - WARNING - Attributo Sys_Email_Quality non trovato: Attempt to use a closed connection.
+2025-11-08 17:11:34,739 - TraceabilityRS - INFO - Eseguendo query per attributo: Sys_Email_Production
+2025-11-08 17:11:34,740 - TraceabilityRS - ERROR - Errore nel recupero degli indirizzi email (Sys_Email_Production): Attempt to use a closed connection.
+2025-11-08 17:11:34,740 - root - WARNING - Attributo Sys_Email_Production non trovato: Attempt to use a closed connection.
+2025-11-08 17:11:34,740 - TraceabilityRS - INFO - Eseguendo query per attributo: Sys_Email_Purchase
+2025-11-08 17:11:34,740 - TraceabilityRS - ERROR - Errore nel recupero degli indirizzi email (Sys_Email_Purchase): Attempt to use a closed connection.
+2025-11-08 17:11:34,740 - root - WARNING - Attributo Sys_Email_Purchase non trovato: Attempt to use a closed connection.
+2025-11-08 17:11:34,740 - TraceabilityRS - INFO - Eseguendo query per attributo: Sys_email_Quality
+2025-11-08 17:11:34,740 - TraceabilityRS - ERROR - Errore nel recupero degli indirizzi email (Sys_email_Quality): Attempt to use a closed connection.
+2025-11-08 17:11:34,740 - root - WARNING - Attributo Sys_email_Quality non trovato: Attempt to use a closed connection.
+2025-11-08 17:11:34,740 - root - WARNING - Impossibile recuperare destinatari email: Attempt to use a closed connection.
+2025-11-08 17:11:35,991 - TraceabilityRS - INFO - Email inviata con successo a 1 destinatari
+2025-11-08 17:11:35,991 - root - INFO - ✅ Email inviata a 1 destinatari
+2025-11-08 17:11:35,992 - root - INFO - Comprehensive analysis completed successfully
+2025-11-08 17:12:31,055 - root - INFO - Configurazione database caricata con successo
+2025-11-08 17:12:31,056 - root - INFO - Logo trovato: Logo.png
+2025-11-08 17:12:31,056 - root - INFO - Starting comprehensive analysis: 2025-11-01 to 2025-11-08
+2025-11-08 17:12:31,524 - root - INFO - Data loaded: 18 scraps, 1128 boards
+2025-11-08 17:12:31,643 - root - INFO - ✅ Excel report salvato: Vandewiele_Scrap_Analysis_20251108_171231.xlsx
+2025-11-08 17:12:31,674 - root - INFO - ✅ PDF report salvato: Vandewiele_Scrap_Summary_20251108_171231.pdf
+2025-11-08 17:12:31,674 - root - WARNING - Attributo Sys_Email_Quality non trovato: get_email_recipients() takes 1 positional argument but 2 were given
+2025-11-08 17:12:31,674 - root - WARNING - Attributo Sys_Email_Production non trovato: get_email_recipients() takes 1 positional argument but 2 were given
+2025-11-08 17:12:31,674 - root - WARNING - Attributo Sys_Email_Purchase non trovato: get_email_recipients() takes 1 positional argument but 2 were given
+2025-11-08 17:12:31,674 - root - WARNING - Attributo Sys_email_Quality non trovato: get_email_recipients() takes 1 positional argument but 2 were given
+2025-11-08 17:12:31,674 - root - WARNING - Impossibile recuperare destinatari email: Attempt to use a closed connection.
+2025-11-08 17:12:33,016 - TraceabilityRS - INFO - Email inviata con successo a 1 destinatari
+2025-11-08 17:12:33,016 - root - INFO - ✅ Email inviata a 1 destinatari
+2025-11-08 17:12:33,017 - root - INFO - Comprehensive analysis completed successfully
+2025-11-08 17:13:14,366 - root - INFO - Configurazione database caricata con successo
+2025-11-08 17:13:14,367 - root - INFO - Logo trovato: Logo.png
+2025-11-08 17:13:14,367 - root - INFO - Starting comprehensive analysis: 2025-11-01 to 2025-11-08
+2025-11-08 17:13:14,816 - root - INFO - Data loaded: 18 scraps, 1128 boards
+2025-11-08 17:13:14,892 - root - INFO - ✅ Excel report salvato: Vandewiele_Scrap_Analysis_20251108_171314.xlsx
+2025-11-08 17:13:14,922 - root - INFO - ✅ PDF report salvato: Vandewiele_Scrap_Summary_20251108_171314.pdf
+2025-11-08 17:13:14,923 - root - WARNING - Impossibile recuperare destinatari email: 'ConfigManager' object has no attribute 'get_connection_string'
+2025-11-08 17:13:16,166 - TraceabilityRS - INFO - Email inviata con successo a 1 destinatari
+2025-11-08 17:13:16,166 - root - INFO - ✅ Email inviata a 1 destinatari
+2025-11-08 17:13:16,168 - root - INFO - Comprehensive analysis completed successfully
+2025-11-08 17:13:52,156 - root - INFO - Configurazione database caricata con successo
+2025-11-08 17:13:52,157 - root - INFO - Logo trovato: Logo.png
+2025-11-08 17:13:52,157 - root - INFO - Starting comprehensive analysis: 2025-11-01 to 2025-11-08
+2025-11-08 17:13:52,620 - root - INFO - Data loaded: 18 scraps, 1128 boards
+2025-11-08 17:13:52,724 - root - INFO - ✅ Excel report salvato: Vandewiele_Scrap_Analysis_20251108_171352.xlsx
+2025-11-08 17:13:52,755 - root - INFO - ✅ PDF report salvato: Vandewiele_Scrap_Summary_20251108_171352.pdf
+2025-11-08 17:13:52,756 - root - WARNING - Impossibile recuperare destinatari email: argument 1 must be a string or unicode object
+2025-11-08 17:13:54,024 - TraceabilityRS - INFO - Email inviata con successo a 1 destinatari
+2025-11-08 17:13:54,024 - root - INFO - ✅ Email inviata a 1 destinatari
+2025-11-08 17:13:54,025 - root - INFO - Comprehensive analysis completed successfully
+2025-11-08 17:14:43,932 - root - INFO - Configurazione database caricata con successo
+2025-11-08 17:14:43,933 - root - INFO - Logo trovato: Logo.png
+2025-11-08 17:14:43,933 - root - INFO - Starting comprehensive analysis: 2025-11-01 to 2025-11-08
+2025-11-08 17:14:44,630 - root - INFO - Data loaded: 18 scraps, 1128 boards
+2025-11-08 17:14:44,726 - root - INFO - ✅ Excel report salvato: Vandewiele_Scrap_Analysis_20251108_171444.xlsx
+2025-11-08 17:14:44,758 - root - INFO - ✅ PDF report salvato: Vandewiele_Scrap_Summary_20251108_171444.pdf
+2025-11-08 17:14:44,759 - root - WARNING - Impossibile recuperare destinatari email: argument 1 must be a string or unicode object
+2025-11-08 17:14:45,775 - TraceabilityRS - INFO - Email inviata con successo a 1 destinatari
+2025-11-08 17:14:45,775 - root - INFO - ✅ Email inviata a 1 destinatari
+2025-11-08 17:14:45,776 - root - INFO - Comprehensive analysis completed successfully
+2025-11-08 17:17:47,847 - root - INFO - Configurazione database caricata con successo
+2025-11-08 17:17:47,848 - root - INFO - Logo trovato: Logo.png
+2025-11-08 17:17:47,848 - root - INFO - Starting comprehensive analysis: 2025-11-01 to 2025-11-08
+2025-11-08 17:17:48,340 - root - INFO - Data loaded: 18 scraps, 1128 boards
+2025-11-08 17:17:48,463 - root - INFO - ✅ Excel report salvato: Vandewiele_Scrap_Analysis_20251108_171748.xlsx
+2025-11-08 17:17:48,493 - root - INFO - ✅ PDF report salvato: Vandewiele_Scrap_Summary_20251108_171748.pdf
+2025-11-08 17:17:48,493 - root - INFO - Usando lista email: ['gtesta@gmail.com', 'Gianluca.Testa@Vandewiele.com']
+2025-11-08 17:17:49,980 - TraceabilityRS - INFO - Email inviata con successo a 2 destinatari
+2025-11-08 17:17:49,980 - root - INFO - ✅ Email inviata a 2 destinatari
+2025-11-08 17:17:49,981 - root - INFO - Comprehensive analysis completed successfully
+2025-11-08 17:24:00,195 - root - INFO - Configurazione database caricata con successo
+2025-11-08 17:24:00,196 - root - INFO - Logo trovato: Logo.png
+2025-11-08 17:24:00,196 - root - INFO - Starting comprehensive analysis: 2025-11-01 to 2025-11-08
+2025-11-08 17:24:00,701 - root - INFO - Data loaded: 18 scraps, 1128 boards
+2025-11-08 17:24:00,810 - root - INFO - ✅ Excel report salvato: Vandewiele_Scrap_Analysis_20251108_172400.xlsx
+2025-11-08 17:24:00,843 - root - INFO - ✅ PDF report salvato: Vandewiele_Scrap_Summary_20251108_172400.pdf
+2025-11-08 17:24:00,843 - root - WARNING - Impossibile connettersi al DB per email: 'ProfessionalScrapAnalyzer' object has no attribute 'DatabaseConnection'
+2025-11-08 17:24:00,843 - root - INFO - Usando lista email di fallback: ['gtesta@gmail.com', 'Gianluca.Testa@Vandewiele.com']
+2025-11-08 17:24:02,015 - TraceabilityRS - INFO - Email inviata con successo a 2 destinatari
+2025-11-08 17:24:02,016 - root - INFO - ✅ Email inviata a 2 destinatari
+2025-11-08 17:24:02,019 - root - INFO - Comprehensive analysis completed successfully
+2025-11-08 17:29:13,052 - root - INFO - Configurazione database caricata con successo
+2025-11-08 17:29:13,053 - root - INFO - Logo trovato: Logo.png
+2025-11-08 17:29:13,053 - root - INFO - Starting comprehensive analysis: 2025-11-01 to 2025-11-08
+2025-11-08 17:29:13,551 - root - INFO - Data loaded: 18 scraps, 1128 boards
+2025-11-08 17:29:13,624 - root - INFO - ✅ Excel report salvato: Vandewiele_Scrap_Analysis_20251108_172913.xlsx
+2025-11-08 17:29:13,654 - root - INFO - ✅ PDF report salvato: Vandewiele_Scrap_Summary_20251108_172913.pdf
+2025-11-08 17:29:13,654 - root - INFO - Cerco attributo: Sys_Email_Quality
+2025-11-08 17:29:13,654 - root - WARNING - Attributo Sys_Email_Quality non disponibile: get_email_recipients() takes 1 positional argument but 2 were given
+2025-11-08 17:29:13,654 - root - INFO - Cerco attributo: Sys_email_Quality
+2025-11-08 17:29:13,654 - root - WARNING - Attributo Sys_email_Quality non disponibile: get_email_recipients() takes 1 positional argument but 2 were given
+2025-11-08 17:29:13,654 - root - INFO - Cerco attributo: Sys_Email_Production
+2025-11-08 17:29:13,655 - root - WARNING - Attributo Sys_Email_Production non disponibile: get_email_recipients() takes 1 positional argument but 2 were given
+2025-11-08 17:29:13,655 - root - INFO - Cerco attributo: Sys_Email_Purchase
+2025-11-08 17:29:13,655 - root - WARNING - Attributo Sys_Email_Purchase non disponibile: get_email_recipients() takes 1 positional argument but 2 were given
+2025-11-08 17:29:13,655 - root - WARNING - Impossibile recuperare destinatari email: Attempt to use a closed connection.
+2025-11-08 17:29:13,655 - root - INFO - Usando lista email di fallback: ['gtesta@gmail.com', 'Gianluca.Testa@Vandewiele.com']
+2025-11-08 17:29:14,645 - TraceabilityRS - INFO - Email inviata con successo a 2 destinatari
+2025-11-08 17:29:14,645 - root - INFO - ✅ Email inviata a 2 destinatari
+2025-11-08 17:29:14,646 - root - INFO - Comprehensive analysis completed successfully
+2025-11-08 17:31:46,647 - root - INFO - Configurazione database caricata con successo
+2025-11-08 17:31:46,648 - root - INFO - Logo trovato: Logo.png
+2025-11-08 17:31:46,648 - root - INFO - Starting comprehensive analysis: 2025-11-01 to 2025-11-08
+2025-11-08 17:31:47,146 - root - INFO - Data loaded: 18 scraps, 1128 boards
+2025-11-08 17:31:47,215 - root - INFO - ✅ Excel report salvato: Vandewiele_Scrap_Analysis_20251108_173147.xlsx
+2025-11-08 17:31:47,251 - root - INFO - ✅ PDF report salvato: Vandewiele_Scrap_Summary_20251108_173147.pdf
+2025-11-08 17:31:47,251 - root - INFO - Cerco attributo: Sys_email_Quality
+2025-11-08 17:31:47,251 - TraceabilityRS - ERROR - Errore nel recupero degli indirizzi email (Sys_email_Quality): Attempt to use a closed connection.
+2025-11-08 17:31:47,251 - root - WARNING - Attributo Sys_email_Quality non disponibile: Attempt to use a closed connection.
+2025-11-08 17:31:47,251 - root - WARNING - Impossibile recuperare destinatari email: Attempt to use a closed connection.
+2025-11-08 17:31:47,251 - root - INFO - Usando lista email di fallback: ['gtesta@gmail.com', 'Gianluca.Testa@Vandewiele.com']
+2025-11-08 17:31:48,820 - TraceabilityRS - INFO - Email inviata con successo a 2 destinatari
+2025-11-08 17:31:48,820 - root - INFO - ✅ Email inviata a 2 destinatari
+2025-11-08 17:31:48,820 - root - INFO - Comprehensive analysis completed successfully
+2025-11-08 17:36:38,950 - root - INFO - Configurazione database caricata con successo
+2025-11-08 17:36:38,950 - root - INFO - Logo trovato: Logo.png
+2025-11-08 17:36:38,950 - root - INFO - Starting comprehensive analysis: 2025-11-01 to 2025-11-08
+2025-11-08 17:36:39,381 - root - INFO - Data loaded: 18 scraps, 1128 boards
+2025-11-08 17:36:39,504 - root - INFO - ✅ Excel report salvato: Vandewiele_Scrap_Analysis_20251108_173639.xlsx
+2025-11-08 17:36:39,534 - root - INFO - ✅ PDF report salvato: Vandewiele_Scrap_Summary_20251108_173639.pdf
+2025-11-08 17:36:39,534 - root - INFO - Cerco attributo: Sys_email_Quality
+2025-11-08 17:36:39,534 - TraceabilityRS - ERROR - Errore nel recupero degli indirizzi email (Sys_email_Quality): Attempt to use a closed connection.
+2025-11-08 17:36:39,534 - root - WARNING - Impossibile recuperare destinatari email: Attempt to use a closed connection.
+2025-11-08 17:36:39,535 - root - INFO - Usando lista email di fallback: ['gtesta@gmail.com', 'Gianluca.Testa@Vandewiele.com']
+2025-11-08 17:36:40,601 - TraceabilityRS - INFO - Email inviata con successo a 2 destinatari
+2025-11-08 17:36:40,601 - root - INFO - ✅ Email inviata a 2 destinatari
+2025-11-08 17:36:40,602 - root - INFO - Comprehensive analysis completed successfully
+2025-11-08 17:40:18,435 - root - INFO - Configurazione database caricata con successo
+2025-11-08 17:40:18,438 - root - INFO - Logo trovato: Logo.png
+2025-11-08 17:40:18,438 - root - INFO - Starting comprehensive analysis: 2025-11-01 to 2025-11-08
+2025-11-08 17:40:18,909 - root - INFO - Data loaded: 18 scraps, 1128 boards
+2025-11-08 17:40:19,030 - root - INFO - Excel report salvato: C:\Temp\Vandewiele_Scrap_Analysis_20251108_174018.xlsx
+2025-11-08 17:40:19,066 - root - INFO - PDF report salvato: C:\Temp\Vandewiele_Scrap_Summary_20251108_174018.pdf
+2025-11-08 17:40:19,066 - root - INFO - Cerco attributo: Sys_email_Quality
+2025-11-08 17:40:19,066 - TraceabilityRS - ERROR - Errore nel recupero degli indirizzi email (Sys_email_Quality): Attempt to use a closed connection.
+2025-11-08 17:40:19,066 - root - WARNING - Impossibile recuperare destinatari email: Attempt to use a closed connection.
+2025-11-08 17:40:19,066 - root - INFO - Usando lista email di fallback: ['gtesta@gmail.com', 'Gianluca.Testa@Vandewiele.com']
+2025-11-08 17:40:20,281 - TraceabilityRS - INFO - Email inviata con successo a 2 destinatari
+2025-11-08 17:40:20,282 - root - INFO - ✅ Email inviata a 2 destinatari
+2025-11-08 17:40:20,285 - root - INFO - Comprehensive analysis completed successfully
+2025-11-08 17:45:13,968 - root - INFO - Configurazione database caricata con successo
+2025-11-08 17:45:13,969 - root - INFO - Logo trovato: Logo.png
+2025-11-08 17:45:13,969 - root - INFO - Starting comprehensive analysis: 2025-11-01 to 2025-11-08
+2025-11-08 17:45:14,471 - root - INFO - Data loaded: 18 scraps, 1128 boards
+2025-11-08 17:45:14,610 - root - INFO - Excel report salvato: C:\Temp\Vandewiele_Scrap_Analysis_20251108_174514.xlsx
+2025-11-08 17:45:14,639 - root - INFO - PDF report salvato: C:\Temp\Vandewiele_Scrap_Summary_20251108_174514.pdf
+2025-11-08 17:45:14,639 - root - INFO - 🔵 Recupero destinatari email...
+2025-11-08 17:45:14,646 - root - INFO - 🔍 Cerco attributo: Sys_email_Quality
+2025-11-08 17:45:14,646 - TraceabilityRS - INFO - Eseguo query per attributo: Sys_email_Quality
+2025-11-08 17:45:14,649 - TraceabilityRS - INFO - Query eseguita, trovate 1 righe
+2025-11-08 17:45:14,649 - TraceabilityRS - INFO - Indirizzi email validi trovati per Sys_email_Quality: ['Gianluca.Testa@Vandewiele.com', 'Silviu.Daniel@vandewiele.com', 'Michael.Gasperini@Eutron.it', 'AlinGabriel.Purda@vandewiele.com']
+2025-11-08 17:45:14,651 - root - INFO - ✅ Destinatari trovati: ['Gianluca.Testa@Vandewiele.com', 'Silviu.Daniel@vandewiele.com', 'Michael.Gasperini@Eutron.it', 'AlinGabriel.Purda@vandewiele.com']
+2025-11-08 17:45:15,871 - TraceabilityRS - INFO - Email inviata con successo a 4 destinatari
+2025-11-08 17:45:15,871 - root - INFO - ✅ Email inviata a 4 destinatari
+2025-11-08 17:45:15,872 - root - INFO - Comprehensive analysis completed successfully
+2025-11-08 17:49:24,045 - root - INFO - Configurazione database caricata con successo
+2025-11-08 17:49:24,045 - root - INFO - Logo trovato: Logo.png
+2025-11-08 17:49:24,045 - root - INFO - Starting comprehensive analysis: 2025-11-01 to 2025-11-08
+2025-11-08 17:49:24,531 - root - INFO - Data loaded: 18 scraps, 1128 boards
+2025-11-08 17:49:24,641 - root - INFO - Excel report salvato: C:\Temp\Vandewiele_Scrap_Analysis_20251108_174924.xlsx
+2025-11-08 17:49:24,672 - root - INFO - PDF report salvato: C:\Temp\Vandewiele_Scrap_Summary_20251108_174924.pdf
+2025-11-08 17:49:24,672 - root - INFO - 🔵 Recupero destinatari email...
+2025-11-08 17:49:24,684 - root - INFO - 🔍 Cerco attributo: Sys_email_Quality
+2025-11-08 17:49:24,684 - TraceabilityRS - INFO - Eseguo query per attributo: Sys_email_Quality
+2025-11-08 17:49:24,687 - TraceabilityRS - INFO - Query eseguita, trovate 1 righe
+2025-11-08 17:49:24,687 - TraceabilityRS - INFO - Indirizzi email validi trovati per Sys_email_Quality: ['gtesta@gmail.com']
+2025-11-08 17:49:24,689 - root - INFO - ✅ Destinatari trovati: ['gtesta@gmail.com']
+2025-11-08 17:49:24,689 - root - INFO - File trovato: C:\Temp\Vandewiele_Scrap_Analysis_20251108_174924.xlsx
+2025-11-08 17:49:24,689 - root - INFO - File trovato: C:\Temp\Vandewiele_Scrap_Summary_20251108_174924.pdf
+2025-11-08 17:49:26,029 - TraceabilityRS - INFO - Email inviata con successo a 1 destinatari
+2025-11-08 17:49:26,029 - root - INFO - Email inviata a 1 destinatari con 2 allegati
+2025-11-08 17:49:26,030 - root - INFO - Comprehensive analysis completed successfully
+2025-11-08 17:51:21,963 - root - INFO - Configurazione database caricata con successo
+2025-11-08 17:51:21,963 - root - INFO - Logo trovato: Logo.png
+2025-11-08 17:51:21,963 - root - INFO - Starting comprehensive analysis: 2025-11-01 to 2025-11-08
+2025-11-08 17:51:22,457 - root - INFO - Data loaded: 18 scraps, 1128 boards
+2025-11-08 17:51:22,535 - root - INFO - Excel report salvato: C:\Temp\Vandewiele_Scrap_Analysis_20251108_175122.xlsx
+2025-11-08 17:51:22,565 - root - INFO - PDF report salvato: C:\Temp\Vandewiele_Scrap_Summary_20251108_175122.pdf
+2025-11-08 17:51:22,565 - root - INFO - 🔵 Recupero destinatari email...
+2025-11-08 17:51:22,572 - root - INFO - 🔍 Cerco attributo: Sys_email_Quality
+2025-11-08 17:51:22,572 - TraceabilityRS - INFO - Eseguo query per attributo: Sys_email_Quality
+2025-11-08 17:51:22,574 - TraceabilityRS - INFO - Query eseguita, trovate 1 righe
+2025-11-08 17:51:22,575 - TraceabilityRS - INFO - Indirizzi email validi trovati per Sys_email_Quality: ['gtesta@gmail.com']
+2025-11-08 17:51:22,575 - root - INFO - ✅ Destinatari trovati: ['gtesta@gmail.com']
+2025-11-08 17:51:22,576 - root - INFO - File trovato: C:\Temp\Vandewiele_Scrap_Analysis_20251108_175122.xlsx
+2025-11-08 17:51:22,576 - root - INFO - File trovato: C:\Temp\Vandewiele_Scrap_Summary_20251108_175122.pdf
+2025-11-08 17:51:24,348 - TraceabilityRS - INFO - Email inviata con successo a 1 destinatari
+2025-11-08 17:51:24,348 - root - INFO - Email inviata a 1 destinatari con 2 allegati
+2025-11-08 17:51:24,350 - root - INFO - Comprehensive analysis completed successfully
