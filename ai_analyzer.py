@@ -1,235 +1,223 @@
 """
-AI Analyzer per Scrap Analysis
-Utilizza Ollama con Llama 3.2 per analisi root cause
+AI Analyzer for Quality Analysis
+Uses Ollama to generate root cause analysis, recommendations, and Kaizen proposals.
 """
 import json
+import logging
+import requests
 from typing import Dict, List, Any
-from logger_config import setup_logger
 
-logger = setup_logger('AIAnalyzer')
+# Setup logger
+logger = logging.getLogger('AIAnalyzer')
 
 
 class AIAnalyzer:
-    """Analizza difetti usando AI con Ollama"""
+    """Analyzes defect data using an AI model via Ollama."""
 
-    def __init__(self, api_key: str = None, provider: str = "ollama"):
+    def __init__(self, base_url: str = 'http://localhost:11434', model: str = 'llama3.2:latest'):
         """
-        Inizializza AI Analyzer
+        Initializes the AI Analyzer.
 
         Args:
-            api_key: Non utilizzato per Ollama
-            provider: "ollama" per uso locale
+            base_url (str): The base URL of the Ollama server API.
+            model (str): The name of the model to use for analysis.
         """
-        self.provider = provider
-        self.model = "llama3.2"  # Modello specifico per Ollama
-        self.logger = logger
+        if not base_url:
+            raise ValueError("Ollama base_url cannot be empty.")
+        self.base_url = base_url
+        self.model = model
+        logger.info(f"AIAnalyzer initialized for model '{self.model}' at {self.base_url}")
 
-        # Verifica se Ollama è disponibile
-        if provider == "ollama":
-            try:
-                import ollama
-                self.client = ollama.Client()
-                # Test connessione a Ollama
-                self.client.list()  # Test semplice
-                self.use_ai = True
-                self.logger.info("✅ Ollama inizializzato con modello llama3.2")
-            except ImportError:
-                self.logger.error("❌ Ollama non installato. Installare con: pip install ollama")
-                self.use_ai = False
-            except Exception as e:
-                self.logger.warning(f"⚠️ Ollama non disponibile: {e} - Uso analisi statistica")
-                self.use_ai = False
-        else:
-            self.use_ai = False
-            self.logger.warning("⚠️ Provider AI non supportato - Uso analisi statistica")
-
-    def analyze_defects(self, defects_data: List[Dict], production_data: Dict) -> Dict[str, Any]:
-        """
-        Analizza difetti e genera insights
-
-        Args:
-            defects_data: Lista difetti con conteggi
-            production_data: Dati produzione
-
-        Returns:
-            dict: Root causes e raccomandazioni
-        """
-        if self.use_ai and self.provider == "ollama":
-            return self._ollama_analysis(defects_data, production_data)
-        else:
-            return self._statistical_analysis(defects_data, production_data)
-
-    def _ollama_analysis(self, defects_data: List[Dict], production_data: Dict) -> Dict[str, Any]:
-        """Analisi con Ollama e Llama 3.2"""
+    def _call_ai(self, prompt: str) -> Dict | None:
+        """Generic method to call the Ollama API and parse the JSON response."""
         try:
-            # Prepara prompt per Ollama
-            prompt = self._create_ollama_prompt(defects_data, production_data)
-
-            # Chiamata a Ollama
-            response = self.client.generate(
-                model=self.model,
-                prompt=prompt,
-                options={
-                    'temperature': 0.3,
-                    'top_p': 0.9,
-                    'num_predict': 1500  # Limite tokens
-                }
+            logger.info("Sending request to AI model...")
+            response = requests.post(
+                f"{self.base_url}/api/generate",
+                json={"model": self.model, "prompt": prompt, "stream": False, "format": "json"},
+                timeout=300  # 5 minutes for complex analysis
             )
-
-            result_text = response['response']
-
-            # Estrai JSON dalla risposta (Ollama potrebbe aggiungere testo extra)
-            json_start = result_text.find('{')
-            json_end = result_text.rfind('}') + 1
-
-            if json_start != -1 and json_end != -1:
-                json_str = result_text[json_start:json_end]
-                return json.loads(json_str)
-            else:
-                self.logger.warning("❌ Formato JSON non trovato nella risposta Ollama")
-                return self._statistical_analysis(defects_data, production_data)
-
+            response.raise_for_status()
+            ai_response_str = response.json().get('response', '{}')
+            parsed_json = json.loads(ai_response_str)
+            logger.info("Successfully received and parsed AI response.")
+            return parsed_json
+        except requests.exceptions.RequestException as e:
+            logger.error(f"Ollama API request failed: {e}")
+        except json.JSONDecodeError as e:
+            logger.error(f"Failed to parse JSON from AI response: {e}. Response was: {ai_response_str[:200]}...")
         except Exception as e:
-            self.logger.error(f"❌ Errore analisi Ollama: {e}")
-            return self._statistical_analysis(defects_data, production_data)
+            logger.error(f"An unexpected error occurred during AI call: {e}", exc_info=True)
+        return None
 
-    def _create_ollama_prompt(self, defects_data: List[Dict], production_data: Dict) -> str:
-        """Crea prompt ottimizzato per Llama 3.2"""
+    def analyze_defects(self, top_defects: List[Dict], production_data: Dict) -> Dict:
+        """Analyzes scrap defects."""
+        prompt = self._create_scrap_analysis_prompt(top_defects, production_data)
+        ai_response = self._call_ai(prompt)
+        if ai_response:
+            return ai_response
+        return {'executive_summary': 'AI analysis for scraps failed. Please review statistical data.', 'root_causes': [], 'recommendations': []}
 
-        # Formatta i dati per il prompt
-        defects_summary = "\n".join([
-            f"- {defect['DefectName']}: {defect['Count']} occorrenze (Area: {defect.get('TopArea', 'N/A')})"
-            for defect in defects_data[:10]
-        ])
+    def analyze_fails(self, fail_data: List[Dict], statistics: Dict, period_type: str) -> Dict:
+        """Analyzes production fails and requests a Kaizen proposal."""
+        prompt = self._create_fail_analysis_prompt(statistics, period_type)
+        ai_response = self._call_ai(prompt)
+        if ai_response:
+            return ai_response
+        return {'executive_summary': 'AI analysis for fails failed. Please review statistical data.', 'root_causes': [], 'recommendations': [], 'kaizen_project_proposal': None}
 
-        total_defects = sum(d['Count'] for d in defects_data)
+    def analyze_breakdowns(self, statistics: Dict, production_data: Dict, period_type: str) -> Dict:
+        """Analyzes line stoppages and requests a Kaizen proposal."""
+        prompt = self._create_stoppage_analysis_prompt(statistics, production_data, period_type)
+        ai_response = self._call_ai(prompt)
+        if ai_response:
+            return ai_response
+        return {'executive_summary': 'AI analysis for breakdowns failed. Please review statistical data.', 'root_causes': [], 'recommendations': [], 'kaizen_project_proposal': None}
 
-        prompt = f"""Sei un esperto di analisi qualità in produzione industriale per VANDEWIELE ROMANIA SRL, specializzato in Wave Soldering.
 
-Dati di produzione:
-- Ordini totali: {production_data.get('NrOrders', 0)}
-- Schede prodotte: {production_data.get('NrBoards', 0):,}
-- Difetti totali: {total_defects}
+    # --- PROMPT CREATION METHODS ---
 
-Top difetti rilevati:
-{defects_summary}
+    def _create_scrap_analysis_prompt(self, top_defects: List[Dict], production_data: Dict) -> str:
+        defects_summary = "\n".join([f"- {d['DefectName']}: {d['Count']} times" for d in top_defects[:5]])
+        total_defects = sum(d['Count'] for d in top_defects)
+        nr_boards = production_data.get('NrBoards', 1)
+        scrap_rate = (total_defects / nr_boards * 100) if nr_boards > 0 else 0
 
-Analizza questi dati e fornisci:
-1. Root causes principali basate sui pattern dei difetti
-2. Raccomandazioni specifiche per migliorare il processo
+        return f"""
+        You are a Quality Assurance expert in an electronics manufacturing plant.
+        Analyze the following weekly scrap data. Your response MUST be a single, valid JSON object and in English.
 
-Rispondi SOLO in formato JSON valido:
+        **Production Context:**
+        - Total Boards Produced: {production_data.get('NrBoards', 'N/A')}
+        - Total Scrapped Boards: {total_defects}
+        - Weekly Scrap Rate: {scrap_rate:.2f}%
 
-{{
-  "root_causes": [
-    {{
-      "category": "categoria (es: Thermal Profile, Flux Management, Process Parameters)",
-      "cause": "causa specifica dettagliata",
-      "impact": "impatto sulla qualità e produzione"
-    }}
-  ],
-  "recommendations": [
-    {{
-      "title": "titolo breve della raccomandazione",
-      "description": "descrizione dettagliata dell'azione da intraprendere",
-      "priority": "Alta/Media/Bassa",
-      "impact": "impatto atteso sul miglioramento"
-    }}
-  ],
-  "analysis_notes": "breve sommario dell'analisi"
-}}
+        **Top 5 Defects:**
+        {defects_summary}
+        
+        **Task:**
+        Provide a concise analysis in the following JSON format.
 
-Considera i parametri tipici del Wave Soldering:
-- Lega: SAC305
-- Temperatura wave: 250-260°C
-- Preheating: 110-130°C
-- Velocità conveyor: 0.8-1.2 m/min
-- Flux: tipo ORL0/ORL1
+        {{
+          "executive_summary": "A brief paragraph summarizing the key findings and the overall quality performance for the week.",
+          "root_causes": [
+            {{
+              "problem_area": "e.g., Soldering Process",
+              "cause_description": "A probable root cause for the most frequent defects.",
+              "supporting_data": "e.g., '{top_defects[0]['DefectName']}' accounts for a significant portion of scraps."
+            }}
+          ],
+          "recommendations": [
+            {{
+              "title": "A short title for the action.",
+              "description": "A concrete, actionable step.",
+              "priority": "High, Medium, or Low"
+            }}
+          ]
+        }}
+        """
 
-Focus sulla risoluzione pratica dei problemi più frequenti."""
+    def _create_fail_analysis_prompt(self, statistics: Dict, period_type: str) -> str:
+        top_defects = "\n".join([f"- {d['defect']}: {d['count']} times" for d in statistics.get('top_defects', [])[:5]])
+        top_products = "\n".join([f"- {p['product']}: {p['count']} fails" for p in statistics.get('top_products', [])[:5]])
+        worst_item = statistics['top_defects'][0]['defect'] if statistics.get('top_defects') else "N/A"
 
-        return prompt
+        return f"""
+        You are a Continuous Improvement Analyst. Analyze production FAIL data. Your response MUST be a single, valid JSON object and in English.
 
-    def _statistical_analysis(self, defects_data: List[Dict], production_data: Dict) -> Dict[str, Any]:
-        """Analisi statistica senza AI"""
-        total_defects = sum(d['Count'] for d in defects_data)
-        top_5 = defects_data[:5]
+        **Analysis Context:**
+        - Report Period: {period_type.title()}
+        - Total Fails: {statistics.get('total_fails', 'N/A')}
+        - Fail Rate: {statistics.get('fail_rate', 0):.2f}%
 
-        # Root causes basate su pattern comuni
-        root_causes = []
-        recommendations = []
+        **Top 5 Defects:**
+        {top_defects}
 
-        for defect in top_5:
-            name = defect['DefectName'].lower()
-            count = defect['Count']
-            percentage = (count / total_defects * 100) if total_defects > 0 else 0
+        **Top 5 Products with Fails:**
+        {top_products}
 
-            # Pattern matching per root causes
-            if 'bridge' in name or 'ponte' in name:
-                root_causes.append({
-                    'category': 'Thermal Profile',
-                    'cause': f'Ponti termici rilevati ({count} casi, {percentage:.1f}%)',
-                    'impact': 'Temperatura wave o velocità conveyor non ottimali'
-                })
-                recommendations.append({
-                    'title': 'Ottimizzazione Profilo Termico',
-                    'description': 'Verificare temperatura wave (250-260°C) e velocità conveyor (0.8-1.2 m/min)',
-                    'priority': 'Alta',
-                    'impact': 'Riduzione ponti termici'
-                })
+        **Task:**
+        Analyze the data and provide a response in the specified JSON format. If the fail rate or concentration of a defect is high, propose a Kaizen project.
 
-            elif 'cold' in name or 'freddo' in name:
-                root_causes.append({
-                    'category': 'Temperature',
-                    'cause': f'Giunti freddi ({count} casi, {percentage:.1f}%)',
-                    'impact': 'Preheating insufficiente o temperatura wave bassa'
-                })
-                recommendations.append({
-                    'title': 'Controllo Temperature',
-                    'description': 'Aumentare preheating (110-130°C) e verificare temperatura wave',
-                    'priority': 'Alta',
-                    'impact': 'Miglioramento qualità giunti'
-                })
+        {{
+          "executive_summary": "A concise summary of findings, the most critical issue, and the quality trend.",
+          "root_causes": [{{ "problem_area": "e.g., Component Quality", "cause_description": "Detailed root cause.", "supporting_data": "Data that supports this conclusion." }}],
+          "recommendations": [{{ "title": "Action title", "description": "What to do.", "priority": "High", "target_problem": "The defect/product to solve." }}],
+          "kaizen_project_proposal": {{
+              "project_title": "Kaizen Project to Reduce '{worst_item}' Fails",
+              "problem_statement": "Data-driven description of the {worst_item} problem.",
+              "goal": "A SMART goal to reduce the issue.",
+              "suggested_team": ["Quality Engineer", "Process Engineer"],
+              "initial_steps": ["1. Deep-dive data analysis", "2. Gemba walk on the affected line."]
+          }}
+        }}
+        If a Kaizen project is not necessary, set "kaizen_project_proposal" to null.
+        """
 
-            elif 'flux' in name:
-                root_causes.append({
-                    'category': 'Flux Management',
-                    'cause': f'Problemi flux ({count} casi, {percentage:.1f}%)',
-                    'impact': 'Applicazione flux non uniforme o flux degradato'
-                })
-                recommendations.append({
-                    'title': 'Gestione Flux',
-                    'description': 'Verificare densità flux (0.82-0.84) e sistema applicazione',
-                    'priority': 'Media',
-                    'impact': 'Applicazione flux più uniforme'
-                })
+    def _create_stoppage_analysis_prompt(self, statistics: Dict, production_data: Dict, period_type: str) -> str:
+        top_freq = "\n".join([f"- {p}: {c} times" for p, c in statistics.get('top_problems_by_freq', [])])
+        top_time = "\n".join([f"- {p}: {t:.2f} hours" for p, t in statistics.get('top_problems_by_time', [])])
+        worst_problem = statistics['top_problems_by_time'][0][0] if statistics.get('top_problems_by_time') else "N/A"
 
-            elif 'hole' in name or 'foro' in name:
-                root_causes.append({
-                    'category': 'Process Parameters',
-                    'cause': f'Riempimento fori insufficiente ({count} casi, {percentage:.1f}%)',
-                    'impact': 'Tempo contatto wave insufficiente o angolo PCB errato'
-                })
-                recommendations.append({
-                    'title': 'Parametri Processo',
-                    'description': 'Ridurre velocità conveyor o aumentare angolo PCB (5-7°)',
-                    'priority': 'Media',
-                    'impact': 'Miglior riempimento fori'
-                })
+        # --- NUOVA SEZIONE: ISTRUZIONI SPECIFICHE PER L'ESPERTO DI PROCESSO ---
+        expert_knowledge_prompt = """
+        **Expert Process Knowledge:**
+        You MUST incorporate the following expert knowledge into your analysis:
+        - The code **"CHO"** means **"Change Over"**. This is the time spent setting up the production line for a new product/order.
+        - **High CHO time is a critical issue.** It does NOT mean a machine is broken. It indicates inefficiency in the setup process.
+        - **Common Root Causes for long CHO:**
+            1.  **Poor Preparation:** The setup (next job's components, tools, documentation) is not prepared before the previous job finishes.
+            2.  **Incomplete Kits:** The component kits from the warehouse are missing parts. This forces the line to stop and wait for a component search, which is a major source of delay.
+        - **If "CHO" is a top problem, your recommendations MUST focus on:**
+            - **SMED (Single-Minute Exchange of Die) principles:** Suggest preparing the changeover *before* the current job ends (external vs. internal activities).
+            - **Kit Verification:** Recommend a process to verify the completeness of component kits *before* they reach the production line.
+            - **Warehouse-Production Coordination:** Emphasize the need for better communication between the warehouse and production to ensure accurate and complete kits.
+        """
+        # --- FINE NUOVA SEZIONE ---
 
-        # Raccomandazioni generali
-        if total_defects > 100:
-            recommendations.append({
-                'title': 'Audit Processo Completo',
-                'description': 'Alto numero difetti richiede audit sistematico del processo wave',
-                'priority': 'Critica',
-                'impact': 'Identificazione problemi sistemici'
-            })
+        return f"""
+        You are a Production Maintenance and Continuous Improvement Analyst with deep expertise in electronics manufacturing.
+        Your task is to analyze line stoppage data for a {period_type} report. Your response MUST be a single, valid JSON object and in English.
 
-        return {
-            'root_causes': root_causes,
-            'recommendations': recommendations,
-            'analysis_type': 'statistical',
-            'total_defects_analyzed': total_defects,
-            'analysis_notes': f'Analisi statistica basata su {total_defects} difetti totali'
-        }
+        {expert_knowledge_prompt}
+
+        **Analysis Context:**
+        - Report Period: {period_type.title()}
+        - Total Boards Produced in Period: {production_data.get('NrBoards', 'N/A')}
+        - Total Stoppages: {statistics.get('total_stoppages', 'N/A')}
+        - Total Downtime: {statistics.get('total_downtime_hours', 0):.2f} hours
+
+        **Top 5 Problems by Frequency of Stoppage:**
+        {top_freq}
+
+        **Top 5 Problems by Total Downtime (Hours):**
+        {top_time}
+
+        **Task:**
+        Analyze the provided data using your expert knowledge. If "CHO" is a significant problem, your root cause analysis and recommendations must reflect the specific process issues related to Change Overs. Your response MUST be a single, valid JSON object.
+
+        {{
+          "executive_summary": "A concise summary of findings, highlighting the main cause of downtime (especially if it is 'CHO') and the overall line performance.",
+          "root_causes": [{{ 
+              "problem_area": "e.g., Change Over Process, Machine Failure, Material Supply", 
+              "cause_description": "Detailed root cause. If the problem is 'CHO', explain it in terms of preparation or kit issues.", 
+              "supporting_data": "Data that supports this conclusion (e.g., ''CHO' is the number one cause of downtime, indicating a systemic process issue')." 
+          }}],
+          "recommendations": [{{ 
+              "title": "Action title (e.g., 'Implement Pre-Changeover Kit Verification').", 
+              "description": "What to do. If targeting 'CHO', suggest specific actions like preparing kits in advance or verifying their contents.", 
+              "priority": "High, Medium, or Low",
+              "target_problem": "The problem to solve (e.g., 'CHO')."
+          }}],
+          "kaizen_project_proposal": {{
+              "project_title": "Kaizen Project to Optimize '{worst_problem}' Process",
+              "problem_statement": "Data-driven description of the '{worst_problem}' issue and its impact on downtime and efficiency.",
+              "goal": "A SMART goal to reduce the downtime/impact of this issue (e.g., 'Reduce average CHO time by 25% within 3 months').",
+              "suggested_team": ["Production Supervisor", "Warehouse Lead", "Process Engineer", "Quality Technician"],
+              "initial_steps": ["1. Map the current Change Over process (Value Stream Mapping).", "2. Time and record all activities during 5 recent CHOs.", "3. Analyze the completeness of the last 20 component kits."]
+          }}
+        }}
+
+        If "CHO" is NOT the main problem, you can propose a more generic Kaizen project for the worst problem. 
+        If a Kaizen project is not necessary at all, set "kaizen_project_proposal" to null.
+        """

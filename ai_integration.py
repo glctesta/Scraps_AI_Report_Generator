@@ -11,7 +11,7 @@ class OllamaAIAnalyzer:
     Classe per integrazione con Ollama AI per analisi difetti Wave Soldering
     """
 
-    def __init__(self, base_url="http://localhost:11434", model_name="llama3.2"):
+    def __init__(self, base_url="http://localhost:11434", model_name="llama3.2:latest"):
         """
         Inizializza l'analyzer Ollama
 

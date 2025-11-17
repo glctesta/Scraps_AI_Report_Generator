@@ -1,545 +1,239 @@
 """
-Modulo per la generazione di report Excel con analisi AI
-Utilizza openpyxl per creare file Excel con formattazione avanzata
+Module for generating advanced Excel reports with charts and summaries.
+Uses openpyxl to create professionally formatted Excel files.
 """
-
-import os
+import pandas as pd
+from pathlib import Path
 from datetime import datetime
-from io import BytesIO
 
 try:
     from openpyxl import Workbook
     from openpyxl.styles import Font, Alignment, PatternFill, Border, Side
     from openpyxl.chart import BarChart, PieChart, LineChart, Reference
+    from openpyxl.utils.dataframe import dataframe_to_rows
     from openpyxl.utils import get_column_letter
-    from openpyxl.worksheet.table import Table, TableStyleInfo
-
+    from openpyxl.cell import MergedCell
     OPENPYXL_AVAILABLE = True
 except ImportError:
     OPENPYXL_AVAILABLE = False
 
 from logger_config import setup_logger
 
-# Inizializza logger
 logger = setup_logger('ExcelGenerator')
 
 
 class ExcelReportGenerator:
-    """
-    Classe per generare report Excel con analisi AI
-    """
+    """Class to generate styled Excel reports with charts."""
 
-    def __init__(self, title="Report Analisi AI"):
-        """
-        Inizializza il generatore Excel
-
-        Args:
-            title (str): Titolo del documento
-        """
-        logger.info(f"Inizializzazione ExcelReportGenerator - Titolo: {title}")
-
+    def __init__(self, title="AI Analysis Report"):
         if not OPENPYXL_AVAILABLE:
-            logger.error("openpyxl non disponibile. Installare con: pip install openpyxl")
-            raise ImportError("openpyxl non installato")
+            logger.error("openpyxl is not available. Please install with: pip install openpyxl pandas")
+            raise ImportError("openpyxl or pandas not installed")
 
-        self.title = title
-        self.workbook = Workbook()
-
-        # Rimuovi il foglio di default
-        if 'Sheet' in self.workbook.sheetnames:
-            del self.workbook['Sheet']
-
-        # Definisci stili
+        self.title_text = title
         self._setup_styles()
-
-        logger.info("ExcelReportGenerator inizializzato con successo")
+        logger.info("ExcelReportGenerator initialized.")
 
     def _setup_styles(self):
-        """Definisce gli stili per il documento Excel"""
-        logger.debug("Configurazione stili Excel")
-
-        # Stile header
-        self.header_font = Font(name='Calibri', size=14, bold=True, color='FFFFFF')
+        """Defines styles for the Excel document."""
+        self.header_font = Font(name='Calibri', size=12, bold=True, color='FFFFFF')
         self.header_fill = PatternFill(start_color='1F4E78', end_color='1F4E78', fill_type='solid')
-        self.header_alignment = Alignment(horizontal='center', vertical='center', wrap_text=True)
-
-        # Stile titolo
         self.title_font = Font(name='Calibri', size=18, bold=True, color='1F4E78')
-        self.title_alignment = Alignment(horizontal='center', vertical='center')
+        self.subtitle_font = Font(name='Calibri', size=14, bold=True, color='44546A')
+        self.chart_title_font = Font(name='Calibri', size=12, bold=True)
 
-        # Stile sottotitolo
-        self.subtitle_font = Font(name='Calibri', size=12, bold=True, color='44546A')
-
-        # Stile dati
-        self.data_font = Font(name='Calibri', size=11)
-        self.data_alignment = Alignment(horizontal='left', vertical='center')
-
-        # Bordi
-        thin_border = Side(border_style="thin", color="000000")
-        self.border = Border(left=thin_border, right=thin_border, top=thin_border, bottom=thin_border)
-
-        # Riempimenti
-        self.fill_light = PatternFill(start_color='E7E6E6', end_color='E7E6E6', fill_type='solid')
-        self.fill_success = PatternFill(start_color='C6EFCE', end_color='C6EFCE', fill_type='solid')
-        self.fill_warning = PatternFill(start_color='FFEB9C', end_color='FFEB9C', fill_type='solid')
-        self.fill_error = PatternFill(start_color='FFC7CE', end_color='FFC7CE', fill_type='solid')
-
-        logger.debug("Stili Excel configurati")
-
-    def generate_report(self, analysis_data, output_path=None):
+    def generate_report(self, report_data: dict, output_path: str) -> str:
         """
-        Genera il report Excel completo
-
-        Args:
-            analysis_data (dict): Dizionario con i dati dell'analisi
-            output_path (str): Percorso del file di output (opzionale)
-
-        Returns:
-            bytes: Contenuto Excel come bytes se output_path è None
-            str: Percorso del file se output_path è specificato
+        Generates a complete Excel report from standardized analysis data, including charts.
         """
-        logger.info("Inizio generazione report Excel")
-        logger.debug(f"Dati analisi ricevuti: {list(analysis_data.keys())}")
-
         try:
-            # Crea fogli
-            self._create_summary_sheet(analysis_data)
+            wb = Workbook()
+            wb.remove(wb.active)  # Remove default sheet
 
-            if 'metrics' in analysis_data:
-                self._create_metrics_sheet(analysis_data['metrics'])
+            # --- Create Sheets ---
+            self._create_summary_sheet(wb, report_data)
+            self._create_charts_sheet(wb, report_data) # New sheet for charts
 
-            if 'detailed_analysis' in analysis_data:
-                self._create_analysis_sheet(analysis_data['detailed_analysis'])
+            if report_data.get('ytd_data'):
+                self._create_ytd_sheet(wb, report_data) # New sheet for Year-to-Date data
 
-            if 'recommendations' in analysis_data:
-                self._create_recommendations_sheet(analysis_data['recommendations'])
+            if report_data.get('root_causes'):
+                self._create_dataframe_sheet(wb, "AI Root Causes", pd.DataFrame(report_data['root_causes']))
+            if report_data.get('recommendations'):
+                self._create_dataframe_sheet(wb, "AI Recommendations", pd.DataFrame(report_data['recommendations']))
+            if report_data.get('raw_data'):
+                self._create_dataframe_sheet(wb, "Raw Data", pd.DataFrame(report_data['raw_data']))
 
-            if 'raw_data' in analysis_data:
-                self._create_raw_data_sheet(analysis_data['raw_data'])
-
-            # Salva o restituisci bytes
-            if output_path:
-                logger.info(f"Salvataggio Excel su file: {output_path}")
-                self.workbook.save(output_path)
-                logger.info(f"Excel salvato in: {output_path}")
-                return output_path
-            else:
-                logger.info("Generazione Excel in memoria (BytesIO)")
-                buffer = BytesIO()
-                self.workbook.save(buffer)
-                excel_bytes = buffer.getvalue()
-                buffer.close()
-                logger.info(f"Excel generato in memoria: {len(excel_bytes)} bytes")
-                return excel_bytes
+            Path(output_path).parent.mkdir(parents=True, exist_ok=True)
+            wb.save(output_path)
+            logger.info(f"Excel report saved successfully to: {output_path}")
+            return output_path
 
         except Exception as e:
-            logger.error(f"Errore durante la generazione Excel: {str(e)}", exc_info=True)
-            raise
+            logger.error(f"Error during Excel report generation: {e}", exc_info=True)
+            return ""
 
-    def _create_summary_sheet(self, data):
-        """Crea il foglio di riepilogo"""
-        logger.debug("Creazione foglio Summary")
+    def _auto_fit_columns(self, ws, min_width=12, max_width=50):
+        """Adjusts column widths based on content, safely ignoring merged cells."""
+        for col_idx in range(1, ws.max_column + 1):
+            column_letter = get_column_letter(col_idx)
+            max_length = 0
+            for cell in ws[column_letter]:
+                if isinstance(cell, MergedCell): continue
+                if cell.value:
+                    try:
+                        cell_length = max(len(line) for line in str(cell.value).split('\n'))
+                        if cell_length > max_length:
+                            max_length = cell_length
+                    except:
+                        pass
+            adjusted_width = max(min_width, max_length + 4)
+            final_width = min(adjusted_width, max_width)
+            ws.column_dimensions[column_letter].width = final_width
 
-        ws = self.workbook.create_sheet("Summary", 0)
-
-        # Titolo
-        ws['A1'] = self.title
+    def _create_summary_sheet(self, wb: Workbook, data: dict):
+        """Creates the main summary sheet with key metrics."""
+        ws = wb.create_sheet("Summary", 0)
+        ws['A1'] = data.get('analysis_type', "Analysis Report")
         ws['A1'].font = self.title_font
-        ws['A1'].alignment = self.title_alignment
-        ws.merge_cells('A1:D1')
-        ws.row_dimensions[1].height = 30
-
-        # Informazioni documento
-        row = 3
-        ws[f'A{row}'] = "Data Generazione:"
-        ws[f'B{row}'] = datetime.now().strftime('%d/%m/%Y %H:%M:%S')
-        ws[f'A{row}'].font = self.subtitle_font
-
-        row += 1
-        ws[f'A{row}'] = "Versione:"
-        ws[f'B{row}'] = data.get('version', '1.0')
-        ws[f'A{row}'].font = self.subtitle_font
-
-        row += 1
-        ws[f'A{row}'] = "Tipo Analisi:"
-        ws[f'B{row}'] = data.get('analysis_type', 'Standard')
-        ws[f'A{row}'].font = self.subtitle_font
-
-        # Sommario esecutivo
-        row += 2
-        ws[f'A{row}'] = "Sommario Esecutivo"
-        ws[f'A{row}'].font = Font(name='Calibri', size=14, bold=True, color='1F4E78')
-
-        row += 1
-        if 'executive_summary' in data:
-            summary = data['executive_summary']
-            if isinstance(summary, str):
-                ws[f'A{row}'] = summary
-                ws.merge_cells(f'A{row}:D{row}')
-                ws[f'A{row}'].alignment = Alignment(wrap_text=True, vertical='top')
-            elif isinstance(summary, dict):
-                for key, value in summary.items():
-                    ws[f'A{row}'] = key
-                    ws[f'B{row}'] = str(value)
-                    ws[f'A{row}'].font = self.subtitle_font
-                    row += 1
-
-        # Statistiche chiave
-        if 'key_stats' in data:
-            row += 2
-            ws[f'A{row}'] = "Statistiche Chiave"
-            ws[f'A{row}'].font = Font(name='Calibri', size=14, bold=True, color='1F4E78')
-
-            row += 1
-            stats = data['key_stats']
-            for stat_name, stat_value in stats.items():
-                ws[f'A{row}'] = stat_name
-                ws[f'B{row}'] = stat_value
-                ws[f'A{row}'].font = self.subtitle_font
-                row += 1
-
-        # Formattazione colonne
-        ws.column_dimensions['A'].width = 25
-        ws.column_dimensions['B'].width = 40
-        ws.column_dimensions['C'].width = 20
-        ws.column_dimensions['D'].width = 20
-
-        logger.debug("Foglio Summary creato")
-
-    def _create_metrics_sheet(self, metrics_data):
-        """Crea il foglio metriche e KPI"""
-        logger.debug("Creazione foglio Metrics")
-
-        ws = self.workbook.create_sheet("Metrics & KPI")
-
-        # Titolo
-        ws['A1'] = "Metriche e KPI"
-        ws['A1'].font = self.title_font
-        ws['A1'].alignment = self.title_alignment
         ws.merge_cells('A1:E1')
-        ws.row_dimensions[1].height = 30
 
-        # Header tabella
-        headers = ['Metrica', 'Valore Attuale', 'Target', 'Differenza', 'Status']
-        row = 3
-        for col, header in enumerate(headers, start=1):
-            cell = ws.cell(row=row, column=col)
-            cell.value = header
+        ws['A3'] = "Period"
+        ws['B3'] = data.get('period', 'N/A')
+        ws['A4'] = "Generated On"
+        ws['B4'] = data.get('generation_date', 'N/A')
+
+        ws['A6'] = "Executive Summary"
+        ws['A6'].font = self.subtitle_font
+        summary_cell = ws['A7']
+        summary_cell.value = data.get('executive_summary', 'Not available.')
+        summary_cell.alignment = Alignment(wrap_text=True, vertical='top')
+        ws.merge_cells('A7:E15')
+
+        # Key Metrics table
+        stats = data.get('statistics', {})
+        metrics = []
+        if 'scrap_rate' in stats:
+            metrics.extend([('Total Scraps', stats.get('total_scraps', 0)), ('Scrap Rate', f"{stats.get('scrap_rate', 0):.2f}%")])
+        if 'fail_rate' in stats:
+            metrics.extend([('Total Fails', stats.get('total_fails', 0)), ('Fail Rate', f"{stats.get('fail_rate', 0):.2f}%")])
+        if 'total_downtime_hours' in stats:
+            metrics.extend([('Total Stoppages', stats.get('total_stoppages', 0)), ('Total Downtime', f"{stats.get('total_downtime_hours', 0):.2f} hrs")])
+
+        ws['G3'] = "Key Metrics"
+        ws['G3'].font = self.subtitle_font
+        for i, (key, value) in enumerate(metrics, 4):
+            ws[f'G{i}'] = key
+            ws[f'H{i}'] = value
+
+        self._auto_fit_columns(ws)
+
+    def _create_charts_sheet(self, wb: Workbook, data: dict):
+        """Creates a new sheet dedicated to charts using a standardized 'chart_data' key."""
+        ws = wb.create_sheet("Charts", 1)
+        ws['A1'] = f"{data.get('analysis_type', '')} - Visual Analysis"
+        ws['A1'].font = self.title_font
+        ws.merge_cells('A1:Q1')
+
+        # --- NUOVA LOGICA ---
+        # Cerca la chiave standard 'chart_data'
+        chart_data_list = data.get('chart_data', [])
+
+        if chart_data_list:
+            # Prepara i dati nel foglio per i grafici
+            # Assume che chart_data_list sia una lista di dizionari con chiavi 'label' e 'value'
+            ws['A3'] = "Top 5 Issues"
+            ws['B3'] = "Count"
+            for i, item in enumerate(chart_data_list[:5], 4):
+                ws[f'A{i}'] = item.get('label', 'N/A')
+                ws[f'B{i}'] = item.get('value', 0)
+
+            # --- Bar Chart ---
+            bar_chart = BarChart()
+            bar_chart.title = "Top 5 Issues by Frequency"
+            bar_chart.style = 11
+
+            chart_data_ref = Reference(ws, min_col=2, min_row=3, max_row=8)
+            categories_ref = Reference(ws, min_col=1, min_row=4, max_row=8)
+            bar_chart.add_data(chart_data_ref, titles_from_data=True)
+            bar_chart.set_categories(categories_ref)
+            bar_chart.legend = None
+            ws.add_chart(bar_chart, "D3")
+
+            # --- Pie Chart ---
+            pie_chart = PieChart()
+            pie_chart.title = "Distribution of Top 5 Issues"
+            pie_chart.style = 4
+
+            pie_data_ref = Reference(ws, min_col=2, min_row=4, max_row=8)
+            labels_ref = Reference(ws, min_col=1, min_row=4, max_row=8)
+            pie_chart.add_data(pie_data_ref)
+            pie_chart.set_categories(labels_ref)
+            ws.add_chart(pie_chart, "L3")
+        else:
+            ws['A3'] = "No data available for charting."
+
+    def _create_ytd_sheet(self, wb: Workbook, data: dict):
+        """Creates the Year-to-Date analysis sheet."""
+        ws = wb.create_sheet("Year-to-Date Analysis", 2)
+        ws['A1'] = f"{data.get('analysis_type', '')} - Year-to-Date Trend"
+        ws['A1'].font = self.title_font
+
+        ytd_data = data.get('ytd_data')
+        if ytd_data:
+            df = pd.DataFrame(ytd_data)
+            # Ensure 'Month' is sorted correctly
+            df['MonthNum'] = pd.to_datetime(df['Month'], format='%Y-%m').dt.month
+            df = df.sort_values('MonthNum')
+            df = df.drop(columns=['MonthNum'])
+
+            # Write data to sheet
+            for r in dataframe_to_rows(df, index=False, header=True):
+                ws.append(r)
+
+            # Apply styles
+            ws['A2'].parent.title = "YTD Data"
+            header_cells = ws[1]
+            for cell in header_cells:
+                cell.font = self.header_font
+                cell.fill = self.header_fill
+
+            # --- Line Chart for YTD Trend ---
+            line_chart = LineChart()
+            line_chart.title = "Monthly Trend (Year-to-Date)"
+            line_chart.style = 13
+            line_chart.y_axis.title = "Count / Rate"
+            line_chart.x_axis.title = "Month"
+
+            # Select columns to plot (all except the 'Month')
+            data_cols = [col for col in df.columns if col != 'Month']
+
+            chart_data = Reference(ws, min_col=2, max_col=len(df.columns), min_row=1, max_row=len(df) + 1)
+            categories = Reference(ws, min_col=1, min_row=2, max_row=len(df) + 1)
+
+            line_chart.add_data(chart_data, titles_from_data=True)
+            line_chart.set_categories(categories)
+
+            ws.add_chart(line_chart, "F2")
+
+        else:
+            ws['A3'] = "No Year-to-Date data available."
+
+    def _create_dataframe_sheet(self, wb: Workbook, sheet_name: str, df: pd.DataFrame):
+        """Creates a new sheet from a pandas DataFrame and styles it."""
+        if df.empty:
+            return
+
+        ws = wb.create_sheet(sheet_name)
+        for r in dataframe_to_rows(df, index=False, header=True):
+            ws.append(r)
+
+        # Apply styles
+        ws['A1'].font = self.header_font # The dataframe headers are now the sheet headers
+        ws['A1'].fill = self.header_fill
+        header_cells = ws[1]
+        for cell in header_cells:
             cell.font = self.header_font
             cell.fill = self.header_fill
-            cell.alignment = self.header_alignment
-            cell.border = self.border
 
-        # Dati
-        row += 1
-        for metric in metrics_data:
-            name = metric.get('name', 'N/A')
-            value = metric.get('value', 0)
-            target = metric.get('target', 0)
-
-            # Calcola differenza
-            try:
-                if isinstance(value, str):
-                    value_num = float(value.replace('%', ''))
-                else:
-                    value_num = float(value)
-
-                if isinstance(target, str):
-                    target_num = float(target.replace('%', ''))
-                else:
-                    target_num = float(target)
-
-                diff = value_num - target_num
-                achieved = diff >= 0
-            except:
-                diff = 'N/A'
-                achieved = False
-
-            # Scrivi dati
-            ws.cell(row=row, column=1).value = name
-            ws.cell(row=row, column=2).value = value
-            ws.cell(row=row, column=3).value = target
-            ws.cell(row=row, column=4).value = diff if diff != 'N/A' else 'N/A'
-            ws.cell(row=row, column=5).value = '✓ Raggiunto' if achieved else '✗ Non Raggiunto'
-
-            # Formattazione
-            for col in range(1, 6):
-                cell = ws.cell(row=row, column=col)
-                cell.border = self.border
-                cell.alignment = Alignment(horizontal='center', vertical='center')
-
-                # Colora status
-                if col == 5:
-                    cell.fill = self.fill_success if achieved else self.fill_error
-
-            row += 1
-
-        # Aggiungi grafico
-        if len(metrics_data) > 0:
-            self._add_metrics_chart(ws, len(metrics_data) + 3)
-
-        # Formattazione colonne
-        ws.column_dimensions['A'].width = 30
-        ws.column_dimensions['B'].width = 15
-        ws.column_dimensions['C'].width = 15
-        ws.column_dimensions['D'].width = 15
-        ws.column_dimensions['E'].width = 20
-
-        logger.debug(f"Foglio Metrics creato con {len(metrics_data)} metriche")
-
-    def _add_metrics_chart(self, ws, data_rows):
-        """Aggiunge un grafico a barre per le metriche"""
-        logger.debug("Aggiunta grafico metriche")
-
-        try:
-            chart = BarChart()
-            chart.title = "Confronto Metriche vs Target"
-            chart.style = 10
-            chart.y_axis.title = 'Valore'
-            chart.x_axis.title = 'Metriche'
-
-            # Dati
-            data = Reference(ws, min_col=2, min_row=3, max_row=data_rows, max_col=3)
-            cats = Reference(ws, min_col=1, min_row=4, max_row=data_rows)
-
-            chart.add_data(data, titles_from_data=True)
-            chart.set_categories(cats)
-
-            # Posiziona grafico
-            ws.add_chart(chart, f"G3")
-
-            logger.debug("Grafico metriche aggiunto")
-        except Exception as e:
-            logger.warning(f"Impossibile aggiungere grafico metriche: {str(e)}")
-
-    def _create_analysis_sheet(self, analysis_data):
-        """Crea il foglio analisi dettagliata"""
-        logger.debug("Creazione foglio Detailed Analysis")
-
-        ws = self.workbook.create_sheet("Detailed Analysis")
-
-        # Titolo
-        ws['A1'] = "Analisi Dettagliata"
-        ws['A1'].font = self.title_font
-        ws['A1'].alignment = self.title_alignment
-        ws.merge_cells('A1:C1')
-        ws.row_dimensions[1].height = 30
-
-        row = 3
-
-        if isinstance(analysis_data, dict):
-            for section, content in analysis_data.items():
-                # Titolo sezione
-                ws[f'A{row}'] = section
-                ws[f'A{row}'].font = Font(name='Calibri', size=12, bold=True, color='1F4E78')
-                ws[f'A{row}'].fill = self.fill_light
-                ws.merge_cells(f'A{row}:C{row}')
-                row += 1
-
-                # Contenuto
-                if isinstance(content, list):
-                    for item in content:
-                        ws[f'A{row}'] = f"• {item}"
-                        ws.merge_cells(f'A{row}:C{row}')
-                        ws[f'A{row}'].alignment = Alignment(wrap_text=True, vertical='top')
-                        row += 1
-                else:
-                    ws[f'A{row}'] = str(content)
-                    ws.merge_cells(f'A{row}:C{row}')
-                    ws[f'A{row}'].alignment = Alignment(wrap_text=True, vertical='top')
-                    row += 1
-
-                row += 1  # Spazio tra sezioni
-
-        # Formattazione colonne
-        ws.column_dimensions['A'].width = 80
-
-        logger.debug("Foglio Detailed Analysis creato")
-
-    def _create_recommendations_sheet(self, recommendations_data):
-        """Crea il foglio raccomandazioni"""
-        logger.debug("Creazione foglio Recommendations")
-
-        ws = self.workbook.create_sheet("Recommendations")
-
-        # Titolo
-        ws['A1'] = "Raccomandazioni AI"
-        ws['A1'].font = self.title_font
-        ws['A1'].alignment = self.title_alignment
-        ws.merge_cells('A1:D1')
-        ws.row_dimensions[1].height = 30
-
-        # Header
-        headers = ['#', 'Priorità', 'Descrizione', 'Impatto Atteso']
-        row = 3
-        for col, header in enumerate(headers, start=1):
-            cell = ws.cell(row=row, column=col)
-            cell.value = header
-            cell.font = self.header_font
-            cell.fill = self.header_fill
-            cell.alignment = self.header_alignment
-            cell.border = self.border
-
-        # Dati
-        row += 1
-        for i, rec in enumerate(recommendations_data, start=1):
-            priority = rec.get('priority', 'Media')
-            description = rec.get('description', 'N/A')
-            impact = rec.get('impact', 'N/A')
-
-            ws.cell(row=row, column=1).value = i
-            ws.cell(row=row, column=2).value = priority
-            ws.cell(row=row, column=3).value = description
-            ws.cell(row=row, column=4).value = impact
-
-            # Formattazione
-            for col in range(1, 5):
-                cell = ws.cell(row=row, column=col)
-                cell.border = self.border
-                cell.alignment = Alignment(wrap_text=True, vertical='top')
-
-            # Colora priorità
-            priority_cell = ws.cell(row=row, column=2)
-            if priority == 'Alta':
-                priority_cell.fill = self.fill_error
-                priority_cell.font = Font(bold=True, color='C00000')
-            elif priority == 'Media':
-                priority_cell.fill = self.fill_warning
-                priority_cell.font = Font(bold=True, color='C65911')
-            else:
-                priority_cell.fill = self.fill_success
-                priority_cell.font = Font(bold=True, color='006100')
-
-            row += 1
-
-        # Formattazione colonne
-        ws.column_dimensions['A'].width = 5
-        ws.column_dimensions['B'].width = 15
-        ws.column_dimensions['C'].width = 50
-        ws.column_dimensions['D'].width = 20
-
-        logger.debug(f"Foglio Recommendations creato con {len(recommendations_data)} raccomandazioni")
-
-    def _create_raw_data_sheet(self, raw_data):
-        """Crea il foglio con dati grezzi"""
-        logger.debug("Creazione foglio Raw Data")
-
-        ws = self.workbook.create_sheet("Raw Data")
-
-        # Titolo
-        ws['A1'] = "Dati Grezzi"
-        ws['A1'].font = self.title_font
-        ws['A1'].alignment = self.title_alignment
-
-        row = 3
-
-        if isinstance(raw_data, list) and len(raw_data) > 0:
-            # Assumi che il primo elemento contenga le chiavi
-            if isinstance(raw_data[0], dict):
-                # Header
-                headers = list(raw_data[0].keys())
-                for col, header in enumerate(headers, start=1):
-                    cell = ws.cell(row=row, column=col)
-                    cell.value = header
-                    cell.font = self.header_font
-                    cell.fill = self.header_fill
-                    cell.alignment = self.header_alignment
-                    cell.border = self.border
-
-                # Dati
-                row += 1
-                for data_row in raw_data:
-                    for col, header in enumerate(headers, start=1):
-                        cell = ws.cell(row=row, column=col)
-                        cell.value = data_row.get(header, '')
-                        cell.border = self.border
-                    row += 1
-
-                # Applica tabella Excel
-                tab = Table(displayName="RawDataTable", ref=f"A3:{get_column_letter(len(headers))}{row - 1}")
-                style = TableStyleInfo(
-                    name="TableStyleMedium9",
-                    showFirstColumn=False,
-                    showLastColumn=False,
-                    showRowStripes=True,
-                    showColumnStripes=False
-                )
-                tab.tableStyleInfo = style
-                ws.add_table(tab)
-
-                # Auto-fit colonne
-                for col in range(1, len(headers) + 1):
-                    ws.column_dimensions[get_column_letter(col)].width = 15
-
-        logger.debug("Foglio Raw Data creato")
-
-
-# Funzione di utilità per uso rapido
-def generate_excel_report(analysis_data, output_path=None, title="Report Analisi AI"):
-    """
-    Funzione di utilità per generare rapidamente un report Excel
-
-    Args:
-        analysis_data (dict): Dati dell'analisi
-        output_path (str): Percorso output (opzionale)
-        title (str): Titolo del report
-
-    Returns:
-        bytes o str: Contenuto Excel o percorso file
-    """
-    logger.info(f"Generazione rapida Excel: {title}")
-    try:
-        generator = ExcelReportGenerator(title=title)
-        result = generator.generate_report(analysis_data, output_path)
-        logger.info("Excel generato con successo tramite funzione di utilità")
-        return result
-    except Exception as e:
-        logger.error(f"Errore nella generazione rapida Excel: {str(e)}", exc_info=True)
-        raise
-
-
-if __name__ == "__main__":
-    # Test del modulo
-    logger.info("Test ExcelGenerator in esecuzione...")
-
-    test_data = {
-        'version': '1.0',
-        'analysis_type': 'Test Report',
-        'executive_summary': 'Questo è un report di test per verificare la generazione Excel.',
-        'key_stats': {
-            'Totale Analisi': 150,
-            'Successi': 142,
-            'Fallimenti': 8
-        },
-        'metrics': [
-            {'name': 'Efficienza', 'value': '95%', 'target': '90%'},
-            {'name': 'Qualità', 'value': '88%', 'target': '95%'},
-            {'name': 'Tempo Ciclo', 'value': '45 min', 'target': '50 min'},
-        ],
-        'detailed_analysis': {
-            'Sezione 1': ['Punto 1', 'Punto 2', 'Punto 3'],
-            'Sezione 2': 'Analisi dettagliata della sezione 2'
-        },
-        'recommendations': [
-            {'priority': 'Alta', 'description': 'Migliorare il processo X', 'impact': 'Alto'},
-            {'priority': 'Media', 'description': 'Ottimizzare il sistema Y', 'impact': 'Medio'},
-            {'priority': 'Bassa', 'description': 'Aggiornare documentazione', 'impact': 'Basso'},
-        ],
-        'raw_data': [
-            {'Prodotto': 'A', 'Quantità': 1000, 'Difetti': 5, 'FPY': '99.5%'},
-            {'Prodotto': 'B', 'Quantità': 1500, 'Difetti': 8, 'FPY': '99.47%'},
-            {'Prodotto': 'C', 'Quantità': 800, 'Difetti': 3, 'FPY': '99.63%'},
-        ]
-    }
-
-    try:
-        excel_bytes = generate_excel_report(test_data, title="Test Report Excel")
-        logger.info(f"Test completato: Excel generato ({len(excel_bytes)} bytes)")
-
-        # Salva su file per test
-        with open('test_report.xlsx', 'wb') as f:
-            f.write(excel_bytes)
-        logger.info("File test_report.xlsx salvato con successo")
-
-    except Exception as e:
-        logger.error(f"Test fallito: {str(e)}", exc_info=True)
+        self._auto_fit_columns(ws)

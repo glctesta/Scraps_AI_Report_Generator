@@ -1,11 +1,27 @@
 # db_connection.py
 import pyodbc
+import logging
+from config_manager import ConfigManager
 
+logger = logging.getLogger('DatabaseConnection')
 
 class DatabaseConnection:
     def __init__(self, config_manager):
-        self.config_manager = config_manager
+        self.logger = logger
+
+        # self.config_manager = config_manager
+        # self.connection = None
+
+        self.logger = logger
+
+        if config_manager is None:
+            self.config_manager = ConfigManager()
+        else:
+            self.config_manager = config_manager
+
         self.connection = None
+        self.logger.info("DatabaseConnection inizializzato")
+
 
     def connect(self):
         """Crea una connessione al database usando le credenziali crittografate"""
